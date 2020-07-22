@@ -1,0 +1,14 @@
+TraceEvent:	Verbose  : 12/04/2019 16:20:20
+TraceEvent:	Verbose  : Validating specified root directories.
+TraceEvent:	Verbose  : Adding specified solutions.
+TraceEvent:	Verbose  : The solution "D:\资料\360safe逆向报告\逆向代码\360Safe\360Safe.sln" with full path "D:\资料\360safe逆向报告\逆向代码\360Safe\360Safe.sln" was added to the list of solutions to upgrade.
+TraceEvent:	Verbose  : Adding solutions found under the specified root directories.
+TraceEvent:	Verbose  : Adding specified projects.
+TraceEvent:	Verbose  : Adding projects found under the specified solutions.
+TraceEvent:	Verbose  : The project with full path "D:\资料\360safe逆向报告\逆向代码\360Safe\360SelfProtection\360SelfProtection.vcxproj" was referenced by solution "D:\资料\360safe逆向报告\逆向代码\360Safe\360Safe.sln" and added to the list of projects to upgrade.
+TraceEvent:	Verbose  : Adding projects found under the specified root directories.
+TraceEvent:	Information  : Upgrading projects.
+TraceEvent:	Information  : Backup created at: D:\资料\360safe逆向报告\逆向代码\360Safe\360SelfProtection\360SelfProtection.vcxproj.backup.
+TraceEvent:	Information  : Upgrading project "D:\资料\360safe逆向报告\逆向代码\360Safe\360SelfProtection\360SelfProtection.vcxproj".
+TraceEvent:	Information  : Upgrade complete for project "D:\资料\360safe逆向报告\逆向代码\360Safe\360SelfProtection\360SelfProtection.vcxproj".
+TraceEvent:	Information  : Projects upgraded.
