@@ -8,6 +8,9 @@ HookPort：
 SelfProtection：     
 负责填写对应的Fake函数
 
+使用：          
+先加载HookPort再加载SelfProtection    
+
 Code：      
 代码部分自己写的很蛇皮偷懒了，后面学习发现V校的帖子零地址妙用。     
 if(XXX =NULL)     
@@ -28,3 +31,4 @@ VS2013 + WDK8.1
 免责声明：                     
 此文件是由逆向分析取得，只可用于学习研究之用途。本人对他人使用本文件中的代码所引起的后果概不负责。           
   
+ 
