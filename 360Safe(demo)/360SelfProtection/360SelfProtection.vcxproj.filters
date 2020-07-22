@@ -1,0 +1,598 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="IDA宏">
+      <UniqueIdentifier>{c4054919-ea62-4790-a544-d7c63854376b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="版本信息">
+      <UniqueIdentifier>{77d4a0cf-ea3f-425b-918e-e50b6c10d84f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数">
+      <UniqueIdentifier>{9661f8fc-a8c3-4241-a4de-b0e5b7869a33}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="全局变量">
+      <UniqueIdentifier>{bd247688-a18f-4c62-81fb-6287ad77dd44}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数">
+      <UniqueIdentifier>{ca98d584-23c3-4d27-8d47-64190054d293}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="EternalBlue">
+      <UniqueIdentifier>{7df899c4-51c3-4cb0-886e-07b1d9fcd2dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作">
+      <UniqueIdentifier>{298bcadb-6e72-489f-9e03-bfd5597e541f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="主函数">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="通用函数\内存检查">
+      <UniqueIdentifier>{33d97b37-5f83-4a08-9aee-52e8cd6a4409}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SSDT">
+      <UniqueIdentifier>{05a77ea4-5646-4a19-8ec0-1b423a421551}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\PE">
+      <UniqueIdentifier>{c461c28d-e32e-4356-83f9-f1368b343396}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="调试信息">
+      <UniqueIdentifier>{358888e9-579f-4411-aff1-37b741c86991}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\通用代码">
+      <UniqueIdentifier>{b756fdbe-7751-423e-b8a9-91ef9a463970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\ZwNtFunc">
+      <UniqueIdentifier>{a74003e6-fe75-4944-b0f4-98a6691ef25d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\Object">
+      <UniqueIdentifier>{e3505b97-0fd9-4b3c-9ad2-61e7333e52f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\异常">
+      <UniqueIdentifier>{07fb1af8-2d3b-4cde-8631-dd9dcd1c236f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="系统头文件">
+      <UniqueIdentifier>{52eefeab-9502-4b8d-a171-6acb01bffdac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通讯">
+      <UniqueIdentifier>{1b686fe7-e2e5-4cf8-a428-a2832c379411}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通讯\主动防御提示与应用层通讯交互">
+      <UniqueIdentifier>{60eea431-1582-496a-9981-3aedb4f57d41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT">
+      <UniqueIdentifier>{7e910e45-abcb-44d7-94e3-17e1e6a1af4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\ShadowSSDT">
+      <UniqueIdentifier>{56afe7fd-58f6-440f-b97a-9ebeead03d43}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\ShadowSSDT\完成">
+      <UniqueIdentifier>{f1b66776-13d2-4764-8df8-34dbca794490}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成">
+      <UniqueIdentifier>{f15a9b50-d146-478a-814a-f2a498ebc1a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwCreateFile">
+      <UniqueIdentifier>{56f874d1-71f4-4fae-a045-d1b0b89f5c6a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwDeleteFile">
+      <UniqueIdentifier>{d36e85a4-7026-4fe8-9864-e962be1b476e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwOpenFile">
+      <UniqueIdentifier>{445d4e6d-6dad-4824-ae2b-8544576e4b8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwCreateProcess">
+      <UniqueIdentifier>{7778675d-0ee0-4c61-ad64-f49162ccbcf5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwOpenKey">
+      <UniqueIdentifier>{0b6026e2-d1fb-40cc-8091-d417ff1901df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwUnmapViewOfSection">
+      <UniqueIdentifier>{1a894752-1052-482f-8a6d-c04926b31504}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwSuspendProcess">
+      <UniqueIdentifier>{cd9473cc-d344-42eb-86a6-f1f91a1e0b6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwSuspendThread">
+      <UniqueIdentifier>{542fc76c-e971-446c-9de9-35b11e72ce52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwAllocateVirtualMemory">
+      <UniqueIdentifier>{b4ef7492-d244-44ba-af92-0418164ee2ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwLoadDriver">
+      <UniqueIdentifier>{ee923578-6c1e-46fc-839f-220415bb964d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwWriteFile">
+      <UniqueIdentifier>{7114c489-981b-4a1d-a63f-429dd7afc315}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\Hash">
+      <UniqueIdentifier>{e3bbc252-9a5c-4b75-9103-913ac1c0b0c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwCreateSection">
+      <UniqueIdentifier>{82866a85-22bc-469d-860d-b82ccffc6f97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\CreateProcessNotifyRoutine">
+      <UniqueIdentifier>{7b220552-64bd-44c6-b3c3-b20740ed7e76}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\内核钩子">
+      <UniqueIdentifier>{d3ea6d56-6b1c-41d2-a6c9-26e9fb15e2b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\内核钩子\KeUserModeCallbackDispatcher">
+      <UniqueIdentifier>{b124fa72-a7ec-4432-bffb-78bc0257f4b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwOpenProcess">
+      <UniqueIdentifier>{86279735-7526-47f5-9519-eaa34fe24b3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwWriteVirtualMemory">
+      <UniqueIdentifier>{7b8c353c-4e38-479a-b927-30a335ddeb95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\Xor">
+      <UniqueIdentifier>{cbe9b96d-fab4-4168-bd27-eac6da39ecb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwCreateThread">
+      <UniqueIdentifier>{dd637d88-4f6f-4854-b41c-e55a56fb7956}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwSetSystemTime">
+      <UniqueIdentifier>{d036a226-73eb-486a-be54-d8e85b3c4da8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwCreateSymbolicLinkObject">
+      <UniqueIdentifier>{3f419fca-469d-4f42-b67a-783b54024fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwGetNextProcess">
+      <UniqueIdentifier>{87637fdc-cdef-4a99-87ff-c1835ff2c7a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwGetNextThread">
+      <UniqueIdentifier>{b3f4cc21-9e2a-4b8a-93ff-f548dc4421dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwOpenMutant">
+      <UniqueIdentifier>{525361e2-61d4-4aac-8570-77bf1c07ce3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwOpenThread">
+      <UniqueIdentifier>{ec1d4359-596d-4921-9066-9afd28ed4579}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwOpenSection">
+      <UniqueIdentifier>{7fa88e1e-9684-4fde-8c47-1feab4c9760e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwDuplicateObject">
+      <UniqueIdentifier>{ee570d96-c3f8-4491-bc5d-0ecef41a82a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwTerminateProcess">
+      <UniqueIdentifier>{c7f4daca-31cb-404a-87f3-81f418787b14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwMakeTemporaryObject">
+      <UniqueIdentifier>{66d7c6ae-2843-42bf-9636-a2f6ac14cb1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\未完成">
+      <UniqueIdentifier>{e329e6a0-e166-4cfc-8181-e698467cb48b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\ShadowSSDT\未完成">
+      <UniqueIdentifier>{1a5139e3-ad91-41eb-8bca-ceeaade54b8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwEnumerateValueKey">
+      <UniqueIdentifier>{d90bb8cb-60a0-4e62-8171-90d5e02f1452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通讯\命令">
+      <UniqueIdentifier>{130f47a3-b2a8-4ab9-b53f-e854d632375a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwDeleteKey">
+      <UniqueIdentifier>{6bba28ca-898e-4bf8-a9fc-a8565de73dac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息">
+      <UniqueIdentifier>{8b229fc5-6837-46b2-b5c4-6fd1af3296a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData">
+      <UniqueIdentifier>{b744c0ce-6b88-40a4-af55-4d3abb54596e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData\特殊系统进程24个">
+      <UniqueIdentifier>{7da3afce-1905-4337-85f9-f3ee40115eb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData\特殊系统进程24个\SystemProcessData">
+      <UniqueIdentifier>{770ce9fb-a9d2-4e6f-a9ac-877dc6af13df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData\特殊系统进程24个\SystemProcessData\增删改查">
+      <UniqueIdentifier>{12bd8fcb-a0f3-4a28-b7ed-efb559827397}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData\非特殊进程8192个">
+      <UniqueIdentifier>{5e6c3475-2aa1-4a50-8116-3104f4d2ba70}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData\非特殊进程8192个\NoSystemProcessData">
+      <UniqueIdentifier>{8c144add-c444-488f-b6b1-1e0dc53507d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\文件信息\AllProcessCRCData\非特殊进程8192个\NoSystemProcessData\增删改查">
+      <UniqueIdentifier>{cf433e97-fdda-4128-9941-74ca30b43b8e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\进程信息">
+      <UniqueIdentifier>{a7ae6dcc-8aa3-4bc4-97ba-c9e64bc98df7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\进程信息\CreateProcessData">
+      <UniqueIdentifier>{3b596e2d-d573-4a4f-925c-29d9f1854f71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\进程信息\CreateProcessData\增删改查">
+      <UniqueIdentifier>{2d422b54-d710-4d3b-a2f4-92de207f21a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\内存信息">
+      <UniqueIdentifier>{170ac4fe-f635-417b-aeab-730631f643c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\内存信息\VirtualMemoryData">
+      <UniqueIdentifier>{2f2128ab-61cd-4f9f-8cb0-b0ae107f83aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\内存信息\VirtualMemoryData\增删改查">
+      <UniqueIdentifier>{5dcd319e-312c-4916-83a6-94ba2fc1ca5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\官方定义系统进程信息">
+      <UniqueIdentifier>{705b099b-c6a6-435f-a24d-e0d1da2ef44f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\官方定义系统进程信息\SafeMon">
+      <UniqueIdentifier>{40702df8-eeb4-4582-b815-1b88d46cbd63}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\官方定义系统进程信息\SafeMon\x360u">
+      <UniqueIdentifier>{ffd3b9b8-b3d4-4459-8817-33fb25bbf291}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\官方定义系统进程信息\SafeMon\x360u\增删改查">
+      <UniqueIdentifier>{76b13ec7-2499-46c5-8141-b2c2e9ec0429}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\官方白名单信息">
+      <UniqueIdentifier>{a071af96-0d60-4c05-8032-fc8e9e4f772f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\官方白名单信息\增删改查">
+      <UniqueIdentifier>{f25bb932-4b0a-47a6-b8ed-622a9f841216}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\用户信任拦截区信息">
+      <UniqueIdentifier>{5073f5f4-2306-4683-a100-a5ba5479bc91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\用户信任拦截区信息\Drvmk">
+      <UniqueIdentifier>{ffe3ed07-09e2-4012-ba9a-917d3d8ef86f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="列表操作\用户信任拦截区信息\Drvmk\增删改查">
+      <UniqueIdentifier>{b9c4db68-d257-41de-abef-5d1456078cc4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwAlpcSendWaitReceivePort">
+      <UniqueIdentifier>{c7fb7af8-bbdd-46e9-b3ab-bd26a7013bc0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数\注册表or服务">
+      <UniqueIdentifier>{482e8ac5-950e-4125-b08a-9647285092b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fake函数\SSDT\完成\ZwSetSystemInformation">
+      <UniqueIdentifier>{7017ce05-940b-4aa2-acdc-9cd0166a8e66}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="360SelfProtection.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="defs.h">
+      <Filter>IDA宏</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>版本信息</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>全局变量</Filter>
+    </ClInclude>
+    <ClInclude Include="Driver.h">
+      <Filter>主函数</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_CreateProcessNotifyRoutine.h">
+      <Filter>Fake函数\SSDT\完成\CreateProcessNotifyRoutine</Filter>
+    </ClInclude>
+    <ClInclude Include="WhiteList.h">
+      <Filter>列表操作\官方白名单信息\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_KeUserModeCallback.h">
+      <Filter>Fake函数\内核钩子\KeUserModeCallbackDispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwWriteFile.h">
+      <Filter>Fake函数\SSDT\完成\ZwWriteFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwOpenFile.h">
+      <Filter>Fake函数\SSDT\完成\ZwOpenFile</Filter>
+    </ClInclude>
+    <ClInclude Include="SrvTransactionNotImplemented.h">
+      <Filter>EternalBlue</Filter>
+    </ClInclude>
+    <ClInclude Include="Regedit.h">
+      <Filter>通用函数\注册表or服务</Filter>
+    </ClInclude>
+    <ClInclude Include="CreateProcessDataList.h">
+      <Filter>列表操作\进程信息\CreateProcessData\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="MemCheck.h">
+      <Filter>通用函数\内存检查</Filter>
+    </ClInclude>
+    <ClInclude Include="SSDT.h">
+      <Filter>SSDT</Filter>
+    </ClInclude>
+    <ClInclude Include="PE.h">
+      <Filter>通用函数\PE</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugPrint.h">
+      <Filter>调试信息</Filter>
+    </ClInclude>
+    <ClInclude Include="WinKernel.h">
+      <Filter>通用函数\通用代码</Filter>
+    </ClInclude>
+    <ClInclude Include="SystemProcessDataList.h">
+      <Filter>列表操作\文件信息\AllProcessCRCData\特殊系统进程24个\SystemProcessData\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="NoSystemProcessDataList.h">
+      <Filter>列表操作\文件信息\AllProcessCRCData\非特殊进程8192个\NoSystemProcessData\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="ZwNtFunc.h">
+      <Filter>通用函数\ZwNtFunc</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwCreateFile.h">
+      <Filter>Fake函数\SSDT\完成\ZwCreateFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwCreateSection.h">
+      <Filter>Fake函数\SSDT\完成\ZwCreateSection</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>通用函数\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="DrvmkDataList.h">
+      <Filter>列表操作\用户信任拦截区信息\Drvmk\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="x360uDataList.h">
+      <Filter>列表操作\官方定义系统进程信息\SafeMon\x360u\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="VirtualMemoryDataList.h">
+      <Filter>列表操作\内存信息\VirtualMemoryData\增删改查</Filter>
+    </ClInclude>
+    <ClInclude Include="Context.h">
+      <Filter>通用函数\异常</Filter>
+    </ClInclude>
+    <ClInclude Include="WinBase.h">
+      <Filter>系统头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwAllocateVirtualMemory.h">
+      <Filter>Fake函数\SSDT\完成\ZwAllocateVirtualMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="SafeWarning.h">
+      <Filter>通讯\主动防御提示与应用层通讯交互</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwCreateProcess.h">
+      <Filter>Fake函数\SSDT\完成\ZwCreateProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwOpenKey.h">
+      <Filter>Fake函数\SSDT\完成\ZwOpenKey</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwUnmapViewOfSection.h">
+      <Filter>Fake函数\SSDT\完成\ZwUnmapViewOfSection</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwSuspendProcess.h">
+      <Filter>Fake函数\SSDT\完成\ZwSuspendProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwSuspendThread.h">
+      <Filter>Fake函数\SSDT\完成\ZwSuspendThread</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwLoadDriver.h">
+      <Filter>Fake函数\SSDT\完成\ZwLoadDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwOpenProcess.h">
+      <Filter>Fake函数\SSDT\完成\ZwOpenProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwDeleteFile.h">
+      <Filter>Fake函数\SSDT\完成\ZwDeleteFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwWriteVirtualMemory.h">
+      <Filter>Fake函数\SSDT\完成\ZwWriteVirtualMemory</Filter>
+    </ClInclude>
+    <ClInclude Include="Xor.h">
+      <Filter>通用函数\Xor</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwCreateThread.h">
+      <Filter>Fake函数\SSDT\完成\ZwCreateThread</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwSetSystemTime.h">
+      <Filter>Fake函数\SSDT\完成\ZwSetSystemTime</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwCreateSymbolicLinkObject.h">
+      <Filter>Fake函数\SSDT\完成\ZwCreateSymbolicLinkObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwGetNextProcess.h">
+      <Filter>Fake函数\SSDT\完成\ZwGetNextProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwGetNextThread.h">
+      <Filter>Fake函数\SSDT\完成\ZwGetNextThread</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwOpenMutant.h">
+      <Filter>Fake函数\SSDT\完成\ZwOpenMutant</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwOpenThread.h">
+      <Filter>Fake函数\SSDT\完成\ZwOpenThread</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwOpenSection.h">
+      <Filter>Fake函数\SSDT\完成\ZwOpenSection</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwDuplicateObject.h">
+      <Filter>Fake函数\SSDT\完成\ZwDuplicateObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwTerminateProcess.h">
+      <Filter>Fake函数\SSDT\完成\ZwTerminateProcess</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwMakeTemporaryObject.h">
+      <Filter>Fake函数\SSDT\完成\ZwMakeTemporaryObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwEnumerateValueKey.h">
+      <Filter>Fake函数\SSDT\完成\ZwEnumerateValueKey</Filter>
+    </ClInclude>
+    <ClInclude Include="Command.h">
+      <Filter>通讯\命令</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwDeleteKey.h">
+      <Filter>Fake函数\SSDT\完成\ZwDeleteKey</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwAlpcSendWaitReceivePort.h">
+      <Filter>Fake函数\SSDT\完成\ZwAlpcSendWaitReceivePort</Filter>
+    </ClInclude>
+    <ClInclude Include="Fake_ZwSetSystemInformation.h">
+      <Filter>Fake函数\SSDT\完成\ZwSetSystemInformation</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Driver.c">
+      <Filter>主函数</Filter>
+    </ClCompile>
+    <ClCompile Include="System.c">
+      <Filter>版本信息</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_CreateProcessNotifyRoutine.c">
+      <Filter>Fake函数\SSDT\完成\CreateProcessNotifyRoutine</Filter>
+    </ClCompile>
+    <ClCompile Include="WhiteList.c">
+      <Filter>列表操作\官方白名单信息\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_KeUserModeCallback.c">
+      <Filter>Fake函数\内核钩子\KeUserModeCallbackDispatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwWriteFile.c">
+      <Filter>Fake函数\SSDT\完成\ZwWriteFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwOpenFile.c">
+      <Filter>Fake函数\SSDT\完成\ZwOpenFile</Filter>
+    </ClCompile>
+    <ClCompile Include="SrvTransactionNotImplemented.c">
+      <Filter>EternalBlue</Filter>
+    </ClCompile>
+    <ClCompile Include="Regedit.c">
+      <Filter>通用函数\注册表or服务</Filter>
+    </ClCompile>
+    <ClCompile Include="CreateProcessDataList.c">
+      <Filter>列表操作\进程信息\CreateProcessData\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="MemCheck.c">
+      <Filter>通用函数\内存检查</Filter>
+    </ClCompile>
+    <ClCompile Include="SSDT.c">
+      <Filter>SSDT</Filter>
+    </ClCompile>
+    <ClCompile Include="PE.c">
+      <Filter>通用函数\PE</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugPrint.c">
+      <Filter>调试信息</Filter>
+    </ClCompile>
+    <ClCompile Include="WinKernel.c">
+      <Filter>通用函数\通用代码</Filter>
+    </ClCompile>
+    <ClCompile Include="SystemProcessDataList.c">
+      <Filter>列表操作\文件信息\AllProcessCRCData\特殊系统进程24个\SystemProcessData\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="NoSystemProcessDataList.c">
+      <Filter>列表操作\文件信息\AllProcessCRCData\非特殊进程8192个\NoSystemProcessData\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="ZwNtFunc.c">
+      <Filter>通用函数\ZwNtFunc</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwCreateFile.c">
+      <Filter>Fake函数\SSDT\完成\ZwCreateFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwCreateSection.c">
+      <Filter>Fake函数\SSDT\完成\ZwCreateSection</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.c">
+      <Filter>通用函数\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="DrvmkDataList.c">
+      <Filter>列表操作\用户信任拦截区信息\Drvmk\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="x360uDataList.c">
+      <Filter>列表操作\官方定义系统进程信息\SafeMon\x360u\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="VirtualMemoryDataList.c">
+      <Filter>列表操作\内存信息\VirtualMemoryData\增删改查</Filter>
+    </ClCompile>
+    <ClCompile Include="Context.c">
+      <Filter>通用函数\异常</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwAllocateVirtualMemory.c">
+      <Filter>Fake函数\SSDT\完成\ZwAllocateVirtualMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="SafeWarning.c">
+      <Filter>通讯\主动防御提示与应用层通讯交互</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwCreateProcess.c">
+      <Filter>Fake函数\SSDT\完成\ZwCreateProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwOpenKey.c">
+      <Filter>Fake函数\SSDT\完成\ZwOpenKey</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwUnmapViewOfSection.c">
+      <Filter>Fake函数\SSDT\完成\ZwUnmapViewOfSection</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwSuspendProcess.c">
+      <Filter>Fake函数\SSDT\完成\ZwSuspendProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwSuspendThread.c">
+      <Filter>Fake函数\SSDT\完成\ZwSuspendThread</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwLoadDriver.c">
+      <Filter>Fake函数\SSDT\完成\ZwLoadDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwOpenProcess.c">
+      <Filter>Fake函数\SSDT\完成\ZwOpenProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwDeleteFile.c">
+      <Filter>Fake函数\SSDT\完成\ZwDeleteFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwWriteVirtualMemory.c">
+      <Filter>Fake函数\SSDT\完成\ZwWriteVirtualMemory</Filter>
+    </ClCompile>
+    <ClCompile Include="Xor.c">
+      <Filter>通用函数\Xor</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwCreateThread.c">
+      <Filter>Fake函数\SSDT\完成\ZwCreateThread</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwSetSystemTime.c">
+      <Filter>Fake函数\SSDT\完成\ZwSetSystemTime</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwCreateSymbolicLinkObject.c">
+      <Filter>Fake函数\SSDT\完成\ZwCreateSymbolicLinkObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwGetNextProcess.c">
+      <Filter>Fake函数\SSDT\完成\ZwGetNextProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwGetNextThread.c">
+      <Filter>Fake函数\SSDT\完成\ZwGetNextThread</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwOpenMutant.c">
+      <Filter>Fake函数\SSDT\完成\ZwOpenMutant</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwOpenThread.c">
+      <Filter>Fake函数\SSDT\完成\ZwOpenThread</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwOpenSection.c">
+      <Filter>Fake函数\SSDT\完成\ZwOpenSection</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwDuplicateObject.c">
+      <Filter>Fake函数\SSDT\完成\ZwDuplicateObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwTerminateProcess.c">
+      <Filter>Fake函数\SSDT\完成\ZwTerminateProcess</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwMakeTemporaryObject.c">
+      <Filter>Fake函数\SSDT\完成\ZwMakeTemporaryObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwEnumerateValueKey.c">
+      <Filter>Fake函数\SSDT\完成\ZwEnumerateValueKey</Filter>
+    </ClCompile>
+    <ClCompile Include="Command.c">
+      <Filter>通讯\命令</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwDeleteKey.c">
+      <Filter>Fake函数\SSDT\完成\ZwDeleteKey</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwAlpcSendWaitReceivePort.c">
+      <Filter>Fake函数\SSDT\完成\ZwAlpcSendWaitReceivePort</Filter>
+    </ClCompile>
+    <ClCompile Include="Fake_ZwSetSystemInformation.c">
+      <Filter>Fake函数\SSDT\完成\ZwSetSystemInformation</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
