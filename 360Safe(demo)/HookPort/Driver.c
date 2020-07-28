@@ -1,22 +1,22 @@
 /*
-Ê±¼ä£º¶ş©–Ò»¾ÅÄêÊ®Ò»ÔÂ¶şÊ®¾ÅÈÕ 16:01:42
-¹¦ÄÜ£ºÑ§Ï°Êı×ÖhookportÄÚºË
-ÒÉ»óµÄµØ·½£ºÔ­°æÇı¶¯ÊÇÃ»ÓĞĞ¶ÔØº¯ÊıµÄ£¿£¿£¿£¿£¿£¿
-²Î¿¼×ÊÁÏ£º
-1¡¢HookportÄæÏò·ÖÎö																		 
-ÍøÖ·£ºhttps://bbs.pediy.com/thread-194022.htm
-2¡¢WinDBGµ÷ÊÔÇı¶¯Ê±ÖĞ¶ÏDriverEntryµÄ·½·¨												 
-ÍøÖ·£ºhttps://www.cnblogs.com/DeeLMind/p/7093321.html
-3¡¢---RootKit ºËĞÄ¼¼Êõ¡ª¡ªÀûÓÃ NT!_MDL Í»ÆÆ KiServiceTable µÄÖ»¶Á·ÃÎÊÏŞÖÆ PART II ----   
-ÍøÖ·£ºhttps://bbs.pediy.com/thread-226043.htm
-4¡¢[¿ÆÆÕ]SSDT/SSSDTÄÇĞ©ÊÂ                                                                
-ÍøÖ·£ºhttps://blog.csdn.net/zhuhuibeishadiao/article/details/71440177
+æ—¶é—´ï¼šäºŒã€‡ä¸€ä¹å¹´åä¸€æœˆäºŒåä¹æ—¥ 16:01:42
+åŠŸèƒ½ï¼šå­¦ä¹ æ•°å­—hookportå†…æ ¸
+ç–‘æƒ‘çš„åœ°æ–¹ï¼šåŸç‰ˆé©±åŠ¨æ˜¯æ²¡æœ‰å¸è½½å‡½æ•°çš„ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
+å‚è€ƒèµ„æ–™ï¼š
+1ã€Hookporté€†å‘åˆ†æ																		 
+ç½‘å€ï¼šhttps://bbs.pediy.com/thread-194022.htm
+2ã€WinDBGè°ƒè¯•é©±åŠ¨æ—¶ä¸­æ–­DriverEntryçš„æ–¹æ³•												 
+ç½‘å€ï¼šhttps://www.cnblogs.com/DeeLMind/p/7093321.html
+3ã€---RootKit æ ¸å¿ƒæŠ€æœ¯â€”â€”åˆ©ç”¨ NT!_MDL çªç ´ KiServiceTable çš„åªè¯»è®¿é—®é™åˆ¶ PART II ----   
+ç½‘å€ï¼šhttps://bbs.pediy.com/thread-226043.htm
+4ã€[ç§‘æ™®]SSDT/SSSDTé‚£äº›äº‹                                                                
+ç½‘å€ï¼šhttps://blog.csdn.net/zhuhuibeishadiao/article/details/71440177
 */
 
 #include "Driver.h"
 
 
-//½âhashËã·¨µÄº¯Êı
+//è§£hashç®—æ³•çš„å‡½æ•°
 __declspec(naked) HookPort_EncryptHash(UCHAR *pImageName)
 {
 	_asm
@@ -81,17 +81,17 @@ __declspec(naked) HookPort_EncryptHash(UCHAR *pImageName)
 
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_GetModuleBaseAddress_EncryptHash     
-// º¯ÊıËµÃ÷£º¸ù¾İº¯ÊıÃû»ñÈ¡Ö¸¶¨ÄÚºË»ùÖ·    
-// IDAµØÖ· £ºsub_16E2C
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/12/05     
-// ·µ »Ø Öµ: BOOLEAN NTAPI     
-// ²Î    Êı: ULONG   Hash				¹şÏ£Öµ 
-// ²Î    Êı: PVOID * pModuleBase        Ä£¿é»ùÖ·
-// ²Î    Êı: ULONG * ModuleSize         Ä£¿é´óĞ¡
-// ²Î    Êı: ULONG * LoadOrderIndex    
+// å‡½æ•°åç§°: HookPort_GetModuleBaseAddress_EncryptHash     
+// å‡½æ•°è¯´æ˜ï¼šæ ¹æ®å‡½æ•°åè·å–æŒ‡å®šå†…æ ¸åŸºå€    
+// IDAåœ°å€ ï¼šsub_16E2C
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/12/05     
+// è¿” å› å€¼: BOOLEAN NTAPI     
+// å‚    æ•°: ULONG   Hash				å“ˆå¸Œå€¼ 
+// å‚    æ•°: PVOID * pModuleBase        æ¨¡å—åŸºå€
+// å‚    æ•°: ULONG * ModuleSize         æ¨¡å—å¤§å°
+// å‚    æ•°: ULONG * LoadOrderIndex    
 //************************************  
 BOOLEAN  HookPort_GetModuleBaseAddress_EncryptHash(IN ULONG Hash, OUT PVOID *pModuleBase, OUT ULONG *ModuleSize, OUT ULONG *LoadOrderIndex)
 {
@@ -146,14 +146,14 @@ BOOLEAN  HookPort_GetModuleBaseAddress_EncryptHash(IN ULONG Hash, OUT PVOID *pMo
 		else {
 			pName = pSysModule->ImageName;
 		}
-		//ÇĞ»»³ÉĞ¡Ğ´¼ÆËã¹şÏ£Öµ
+		//åˆ‡æ¢æˆå°å†™è®¡ç®—å“ˆå¸Œå€¼
 
 		pBuff = _strlwr(pName);
 		ULONG LocalHash = HookPort_EncryptHash(pBuff);
 		//KdPrint(("ImageName:%s Hash:%X\t\n", pBuff, LocalHash));
 		if (LocalHash == Hash)
 		{
-			//ÕÒµ½ÔòÍË³öÑ­»·
+			//æ‰¾åˆ°åˆ™é€€å‡ºå¾ªç¯
 			Result = 1;
 			break;
 		}
@@ -184,27 +184,27 @@ BOOLEAN  HookPort_GetModuleBaseAddress_EncryptHash(IN ULONG Hash, OUT PVOID *pMo
 	return Result;
 }
 
-//LoadImageNotifyRoutineµÄFakeº¯Êı
+//LoadImageNotifyRoutineçš„Fakeå‡½æ•°
 ULONG Fake_LoadImageNotifyRoutine(ULONG CallIndex, PVOID ArgArray, PULONG ret_func, PULONG ret_arg)
 {
-	//0¡¢¶¨Òå±äÁ¿
+	//0ã€å®šä¹‰å˜é‡
 	PUNICODE_STRING FullImageName;
 	HANDLE ProcessId;
 	PIMAGE_INFO ImageInfo;
 	PCHAR   pBuff, pName;
 	ULONG   Result, HashNumber;
 	STRING  DestinationString;
-	//1¡¢½«²ÎÊıÊı×éÏÈ·Ö±ğ±£´æÆğÀ´£¬·½±ãºóĞøÊ¹ÓÃ
+	//1ã€å°†å‚æ•°æ•°ç»„å…ˆåˆ†åˆ«ä¿å­˜èµ·æ¥ï¼Œæ–¹ä¾¿åç»­ä½¿ç”¨
 	FullImageName = *(ULONG*)((ULONG)ArgArray);
 	ProcessId = *(ULONG*)((ULONG)ArgArray + 4);
 	ImageInfo = *(ULONG*)((ULONG)ArgArray + 8);
 	pBuff = NULL;
-	//2¡¢ÅĞ¶Ï²ÎÊı»ñÈ¡ÊÇ·ñÕı³£
+	//2ã€åˆ¤æ–­å‚æ•°è·å–æ˜¯å¦æ­£å¸¸
 	if ((!(ImageInfo->SystemModeImage)) && (ImageInfo->ImageBase < MmHighestUserAddress) && !FullImageName)
 	{
 		return 0;
 	}
-	//3¡¢¿½±´llImageNameºóÃæ½øĞĞhash
+	//3ã€æ‹·è´llImageNameåé¢è¿›è¡Œhash
 	pBuff = ExAllocatePoolWithTag(NonPagedPool, 0x100, HOOKPORT_POOLTAG7);
 	if (!pBuff)
 	{
@@ -227,17 +227,17 @@ ULONG Fake_LoadImageNotifyRoutine(ULONG CallIndex, PVOID ArgArray, PULONG ret_fu
 	{
 		pName = pBuff;
 	}
-	//3¡¢1 ¼ÆËã¹şÏ£
+	//3ã€1 è®¡ç®—å“ˆå¸Œ
 	HashNumber = HookPort_EncryptHash(pName);
-	//3¡¢2 ÊÍ·Å¿Õ¼ä
+	//3ã€2 é‡Šæ”¾ç©ºé—´
 	ExFreePool(pBuff);
-	//4 Î´Öª
+	//4 æœªçŸ¥
 	if (HashNumber == Global_Hash_2)
 	{
 		if (dword_1B120 && !dword_1B128 && !dword_1B12C)
 		{
 			//hook KiSystemService 
-			//·µ»ØÖµ£º³É¹¦·µ»Ø1  Ê§°Ü·µ»Ø0
+			//è¿”å›å€¼ï¼šæˆåŠŸè¿”å›1  å¤±è´¥è¿”å›0
 			if (HookPort_SetFakeKiSystemServiceAddress() == (_DWORD *)1)
 			{
 				dword_1B128 = 1;
@@ -246,11 +246,11 @@ ULONG Fake_LoadImageNotifyRoutine(ULONG CallIndex, PVOID ArgArray, PULONG ret_fu
 			return 0;
 		}
 	}
-	//5 Î´Öª
+	//5 æœªçŸ¥
 	else if ((HashNumber == Global_Hash_3 || HashNumber == Global_Hash_4) && !dword_1B12C && !dword_1B130)
 	{
-		//ÉèÖÃ¿Õº¯Êı£¬ÓĞºÎÒâÒåÄØ£¿£¿£¿£¿£¿£¿ Î´Öª
-		////ÉèÖÃ¹æÔò¹ıÂËº¯ÊıÓë¿ª¹Ø
+		//è®¾ç½®ç©ºå‡½æ•°ï¼Œæœ‰ä½•æ„ä¹‰å‘¢ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ æœªçŸ¥
+		////è®¾ç½®è§„åˆ™è¿‡æ»¤å‡½æ•°ä¸å¼€å…³
 		HookPort_SetFilterSwitchFunction(g_FilterFun_Rule_table_head_Temp, ZwDisplayString_FilterIndex, Fake_VacancyFunc);
 		HookPort_SetFilterRule(g_FilterFun_Rule_table_head_Temp, ZwDisplayString_FilterIndex, 1);
 		dword_1B130 = 1;
@@ -259,13 +259,13 @@ ULONG Fake_LoadImageNotifyRoutine(ULONG CallIndex, PVOID ArgArray, PULONG ret_fu
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_AllocFilterTable     
-// º¯ÊıËµÃ÷£º×¼±¸»º³åÇø±£´æSSDTÓëSSSDTĞÅÏ¢
-// IDAµØÖ· £ºsub_15774
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/12/18     
-// ·µ »Ø Öµ: BOOLEAN     
+// å‡½æ•°åç§°: HookPort_AllocFilterTable     
+// å‡½æ•°è¯´æ˜ï¼šå‡†å¤‡ç¼“å†²åŒºä¿å­˜SSDTä¸SSSDTä¿¡æ¯
+// IDAåœ°å€ ï¼šsub_15774
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/12/18     
+// è¿” å› å€¼: BOOLEAN     
 //************************************  
 BOOLEAN  HookPort_AllocFilterTable()
 {
@@ -278,13 +278,13 @@ BOOLEAN  HookPort_AllocFilterTable()
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_GetNativeFunAddress     
-// º¯ÊıËµÃ÷£º»ñÈ¡Ö¸¶¨º¯Êı»ùÖ·    
-// IDAµØÖ· £ºsub_121C6
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/12/05     
-// ·µ »Ø Öµ: BOOLEAN      
+// å‡½æ•°åç§°: HookPort_GetNativeFunAddress     
+// å‡½æ•°è¯´æ˜ï¼šè·å–æŒ‡å®šå‡½æ•°åŸºå€    
+// IDAåœ°å€ ï¼šsub_121C6
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/12/05     
+// è¿” å› å€¼: BOOLEAN      
 //************************************ 
 BOOLEAN  HookPort_GetNativeFunAddress(PVOID* NtImageBase)
 {
@@ -408,18 +408,18 @@ BOOLEAN  HookPort_GetNativeFunAddress(PVOID* NtImageBase)
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_InitializeIndex     
-// º¯ÊıËµÃ÷£º³õÊ¼»¯NtÄÚºËº¯ÊıË÷Òı   
-// IDAµØÖ· £º
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/12/31     
-// ·µ »Ø Öµ: BOOLEAN     
+// å‡½æ•°åç§°: HookPort_InitializeIndex     
+// å‡½æ•°è¯´æ˜ï¼šåˆå§‹åŒ–Ntå†…æ ¸å‡½æ•°ç´¢å¼•   
+// IDAåœ°å€ ï¼š
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/12/31     
+// è¿” å› å€¼: BOOLEAN     
 //************************************  
 BOOLEAN HookPort_InitializeIndex()
 {
 
-	//SSDT²¿·Ö
+	//SSDTéƒ¨åˆ†
 	g_SSDT_Func_Index_Data.ZwCreateKeyIndex = g_SSDTServiceLimit;
 	g_SSDT_Func_Index_Data.ZwQueryValueKeyIndex = g_SSDTServiceLimit;
 	g_SSDT_Func_Index_Data.ZwDeleteKeyIndex = g_SSDTServiceLimit;
@@ -516,7 +516,7 @@ BOOLEAN HookPort_InitializeIndex()
 	g_SSDT_Func_Index_Data.dword_1BA98 = g_SSDTServiceLimit;
 
 
-	//ShadowSSDT²¿·Ö
+	//ShadowSSDTéƒ¨åˆ†
 	g_ShadowSSDT_Func_Index_Data.ZwUnmapViewOfSectionIndex = g_SSDTServiceLimit;
 	g_ShadowSSDT_Func_Index_Data.ZwUserSetWinEventHookIndex = g_SSDTServiceLimit;
 	g_ShadowSSDT_Func_Index_Data.ZwUserCallHwndParamLockIndex = g_SSDTServiceLimit;
@@ -578,28 +578,28 @@ BOOLEAN HookPort_InitializeIndex()
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_GetAllNativeFunAddress     
-// º¯ÊıËµÃ÷£º»ñÈ¡º¯ÊıµØÖ·¡¢º¯ÊıĞòºÅ¡¢    
-// IDAµØÖ· £ºsub_12ACC
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/12/05     
-// ·µ »Ø Öµ: BOOLEAN NTAPI     
+// å‡½æ•°åç§°: HookPort_GetAllNativeFunAddress     
+// å‡½æ•°è¯´æ˜ï¼šè·å–å‡½æ•°åœ°å€ã€å‡½æ•°åºå·ã€    
+// IDAåœ°å€ ï¼šsub_12ACC
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/12/05     
+// è¿” å› å€¼: BOOLEAN NTAPI     
 //************************************ 
 BOOLEAN  NTAPI HookPort_GetAllNativeFunAddress(PVOID* NtImageBase, IN RTL_OSVERSIONINFOEXW osverinfo)
 {
 	ULONG BuildNumber = osverinfo.dwBuildNumber;
 	ULONG MinorVersion = osverinfo.dwMinorVersion;
 	ULONG MajorVersion = osverinfo.dwMajorVersion;
-	//1¡¢»ñÈ¡º¯ÊıµØÖ·
+	//1ã€è·å–å‡½æ•°åœ°å€
 	BOOLEAN	result = HookPort_GetNativeFunAddress(NtImageBase);
 	if (!result)
 	{
 		return FALSE;
 	}
-	//2¡¢³õÊ¼»¯º¯ÊıĞòºÅ±äÁËÎªÄ¬ÈÏÖµ;
+	//2ã€åˆå§‹åŒ–å‡½æ•°åºå·å˜äº†ä¸ºé»˜è®¤å€¼;
 	HookPort_InitializeIndex();
-	//3¡¢»ñÈ¡º¯ÊıĞòºÅ
+	//3ã€è·å–å‡½æ•°åºå·
 	if (!g_SSDT_Func_Index_Data.pZwCreateKey || *(UCHAR *)g_SSDT_Func_Index_Data.pZwCreateKey != 0xB8 || (g_SSDT_Func_Index_Data.ZwCreateKeyIndex = *(DWORD *)((PCHAR)g_SSDT_Func_Index_Data.pZwCreateKey + 1), g_SSDT_Func_Index_Data.ZwCreateKeyIndex >= g_SSDTServiceLimit))
 		g_SSDT_Func_Index_Data.ZwCreateKeyIndex = g_SSDTServiceLimit;
 	if (!g_SSDT_Func_Index_Data.pZwQueryValueKey || *(UCHAR *)g_SSDT_Func_Index_Data.pZwQueryValueKey != 0xB8 || (g_SSDT_Func_Index_Data.ZwQueryValueKeyIndex = *(DWORD *)((PCHAR)g_SSDT_Func_Index_Data.pZwQueryValueKey + 1), g_SSDT_Func_Index_Data.ZwQueryValueKeyIndex >= g_SSDTServiceLimit))
@@ -678,8 +678,8 @@ BOOLEAN  NTAPI HookPort_GetAllNativeFunAddress(PVOID* NtImageBase, IN RTL_OSVERS
 	else
 	{
 		g_SSDT_Func_Index_Data.ZwUnmapViewOfSectionIndex = *(DWORD *)((PCHAR)g_SSDT_Func_Index_Data.pZwUnmapViewOfSection + 1);
-		if (MajorVersion == 6 && (MinorVersion == 2 || MinorVersion == 3) || MajorVersion == 10 && !MinorVersion)// Win8¡¢Win10
-			g_SSDT_Func_Index_Data.ZwUnmapViewOfSectionIndex_Win8_Win10 = g_SSDT_Func_Index_Data.ZwUnmapViewOfSectionIndex + 1;					//ÕâÀïÓĞ´íÎóÎ´ºË¶Ô£¿£¿£¿£¿£¿£¿£¿£¿£¿£¿
+		if (MajorVersion == 6 && (MinorVersion == 2 || MinorVersion == 3) || MajorVersion == 10 && !MinorVersion)// Win8ã€Win10
+			g_SSDT_Func_Index_Data.ZwUnmapViewOfSectionIndex_Win8_Win10 = g_SSDT_Func_Index_Data.ZwUnmapViewOfSectionIndex + 1;					//è¿™é‡Œæœ‰é”™è¯¯æœªæ ¸å¯¹ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 
 	}
 	if (!g_SSDT_Func_Index_Data.pZwAllocateVirtualMemory || *(UCHAR *)g_SSDT_Func_Index_Data.pZwAllocateVirtualMemory != 0xB8 || (g_SSDT_Func_Index_Data.ZwAllocateVirtualMemoryIndex = *(DWORD *)((PCHAR)g_SSDT_Func_Index_Data.pZwAllocateVirtualMemory + 1), g_SSDT_Func_Index_Data.ZwAllocateVirtualMemoryIndex >= g_SSDTServiceLimit))
@@ -694,7 +694,7 @@ BOOLEAN  NTAPI HookPort_GetAllNativeFunAddress(PVOID* NtImageBase, IN RTL_OSVERS
 		g_SSDT_Func_Index_Data.ZwConnectPortIndex = g_SSDTServiceLimit;
 	if (!g_SSDT_Func_Index_Data.pZwSecureConnectPort)
 	{
-		if (MajorVersion == 5)                    // Win2K¡¢WinXP¡¢Win2003
+		if (MajorVersion == 5)                    // Win2Kã€WinXPã€Win2003
 		{
 			if (!MinorVersion)                      // Win_2K
 			{
@@ -745,7 +745,7 @@ LABEL_138:
 	}
 	switch (MajorVersion)
 	{
-		//Win2K¡¢WinXP¡¢Win2003
+		//Win2Kã€WinXPã€Win2003
 	case 5:
 	{
 		//win2k
@@ -936,10 +936,10 @@ LABEL_138:
 			g_SSDT_Func_Index_Data.ZwSuspendThreadIndex = 254;
 			g_SSDT_Func_Index_Data.ZwSuspendProcessIndex = 253;
 		}
-		//win2003Î´ÊµÏÖ
+		//win2003æœªå®ç°
 		else if (MinorVersion == 2)
 		{
-			KdPrint(("Win2003Î´Ö§³Ö\t\n"));
+			KdPrint(("Win2003æœªæ”¯æŒ\t\n"));
 			return FALSE;
 		}
 		g_ShadowSSDT_Func_Index_Data.NtGdiBitBltIndex = 4109;
@@ -949,18 +949,18 @@ LABEL_138:
 		g_ShadowSSDT_Func_Index_Data.NtGdiAddRemoteFontToDCIndex = 4099;
 		g_SSDT_Func_Index_Data.ZwQueueApcThreadExIndex = g_SSDTServiceLimit;
 		g_SSDT_Func_Index_Data.ZwApphelpCaCheControlIndex = g_SSDTServiceLimit;
-		g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex - 1;	//ÕâÀï¿ÉÄÜÓĞÎÊÌâ
+		g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex - 1;	//è¿™é‡Œå¯èƒ½æœ‰é—®é¢˜
 		return TRUE;
 	}
-	//VISTA¡¢Win7¡¢Win8
+	//VISTAã€Win7ã€Win8
 	case 6:
 	{
-		if (MinorVersion == 0 || MinorVersion == 1)					//ÕâÀï¿ÉÄÜÓĞÎÊÌâ
+		if (MinorVersion == 0 || MinorVersion == 1)					//è¿™é‡Œå¯èƒ½æœ‰é—®é¢˜
 		{
 			g_SSDT_Func_Index_Data.ZwLoadKey2Index = g_SSDT_Func_Index_Data.ZwLoadKeyIndex + 1;
 			g_SSDT_Func_Index_Data.ZwLoadKeyExIndex = g_SSDT_Func_Index_Data.ZwLoadKeyIndex + 2;
 		}
-		if (MinorVersion == 2 && MinorVersion == 3)					//ÕâÀï¿ÉÄÜÓĞÎÊÌâ
+		if (MinorVersion == 2 && MinorVersion == 3)					//è¿™é‡Œå¯èƒ½æœ‰é—®é¢˜
 		{
 			g_SSDT_Func_Index_Data.ZwLoadKey2Index = g_SSDT_Func_Index_Data.ZwLoadKeyIndex - 1;
 			g_SSDT_Func_Index_Data.ZwLoadKeyExIndex = g_SSDT_Func_Index_Data.ZwLoadKeyIndex - 2;
@@ -1091,7 +1091,7 @@ LABEL_138:
 			g_ShadowSSDT_Func_Index_Data.NtGdiAddFontResourceWIndex = 4098;
 			g_ShadowSSDT_Func_Index_Data.NtGdiAddFontMemResourceExIndex = 4100;
 			g_ShadowSSDT_Func_Index_Data.NtGdiAddRemoteFontToDCIndex = 4099;
-			g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex - 1;	//ÕâÀï¿ÉÄÜÓĞÎÊÌâ
+			g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex - 1;	//è¿™é‡Œå¯èƒ½æœ‰é—®é¢˜
 			return TRUE;
 		}
 		//Win7
@@ -1196,7 +1196,7 @@ LABEL_138:
 				g_SSDT_Func_Index_Data.ZwSuspendThreadIndex = 367;
 				g_SSDT_Func_Index_Data.ZwSuspendProcessIndex = 366;
 				g_SSDT_Func_Index_Data.ZwApphelpCaCheControlIndex = 41;
-				g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex - 1;	//ÕâÀï¿ÉÄÜÓĞÎÊÌâ
+				g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex - 1;	//è¿™é‡Œå¯èƒ½æœ‰é—®é¢˜
 				return TRUE;
 			}
 			else
@@ -1411,7 +1411,7 @@ LABEL_138:
 			g_SSDT_Func_Index_Data.ZwApphelpCaCheControlIndex = 388;
 			g_SSDT_Func_Index_Data.dword_1BB08 = 4806;
 		}
-		g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex + 1;	//ÕâÀï¿ÉÄÜÓĞÎÊÌâ
+		g_SSDT_Func_Index_Data.ZwAccessCheckIndex = g_SSDT_Func_Index_Data.ZwAccessCheckAndAuditAlarmIndex + 1;	//è¿™é‡Œå¯èƒ½æœ‰é—®é¢˜
 		g_SSDT_Func_Index_Data.ZwSuspendThreadIndex = 38;
 		g_SSDT_Func_Index_Data.ZwSuspendProcessIndex = 39;
 		return TRUE;
@@ -1458,16 +1458,16 @@ LABEL_138:
 }
 
 
-// ×÷ÓÃ²»Ã÷
+// ä½œç”¨ä¸æ˜
 VOID HookPort_SetFlag_On()
 {
 	dword_1B110 = 1;
 }
 
-//Ò»¸ö¿Ó
-//layerfsd¶¨ÒåµÄ½á¹¹ÊÇÈçÏÂ£º
+//ä¸€ä¸ªå‘
+//layerfsdå®šä¹‰çš„ç»“æ„æ˜¯å¦‚ä¸‹ï¼š
 //typedef NTSTATUS (NTAPI *pPsReleaseProcessExitSynchronization)(HANDLE, HANDLE);
-//µ«ÊÇ°Ù¶ÈÁËÏÂÕâ¸ö½á¹¹Ó¦¸ÃÊÇ
+//ä½†æ˜¯ç™¾åº¦äº†ä¸‹è¿™ä¸ªç»“æ„åº”è¯¥æ˜¯
 //typedef NTSTATUS(NTAPI *pPsReleaseProcessExitSynchronization)(__in PEPROCESS Process);
 HANDLE	HookPort_GetApiPortProcessId(IN RTL_OSVERSIONINFOEXW osverinfo)
 {
@@ -1503,7 +1503,7 @@ HANDLE	HookPort_GetApiPortProcessId(IN RTL_OSVERSIONINFOEXW osverinfo)
 	ULONG BuildNumber = osverinfo.dwBuildNumber;
 	ULONG MinorVersion = osverinfo.dwMinorVersion;
 	ULONG MajorVersion = osverinfo.dwMajorVersion;
-	//1¡¢¶ÔÓÚvistaÒÔÉÏµÄÏµÍ³£¬¿ÉÒÔÊ¹ÓÃPsAcquireProcessExitSynchronization / PsReleaseProcessExitSynchronization×éºÏÀ´ÉêÇëºÍÊÍ·Åprocess rundown£¬
+	//1ã€å¯¹äºvistaä»¥ä¸Šçš„ç³»ç»Ÿï¼Œå¯ä»¥ä½¿ç”¨PsAcquireProcessExitSynchronization / PsReleaseProcessExitSynchronizationç»„åˆæ¥ç”³è¯·å’Œé‡Šæ”¾process rundownï¼Œ
 	if (BuildNumber >= 6000)
 	{
 		RtlInitUnicodeString(&SystemRoutineName, PsAcquireProcessExitSynchronizationName);
@@ -1512,15 +1512,15 @@ HANDLE	HookPort_GetApiPortProcessId(IN RTL_OSVERSIONINFOEXW osverinfo)
 		RtlInitUnicodeString(&SystemRoutineName, PsReleaseProcessExitSynchronizationName);
 		PsReleaseProcessExitSynchronization = (pPsReleaseProcessExitSynchronization)MmGetSystemRoutineAddress(&SystemRoutineName);
 	}
-	//2¡¢»ñÈ¡ÏµÍ³¾ä±ú
+	//2ã€è·å–ç³»ç»Ÿå¥æŸ„
 	psystemhandleinfo = (PVOID)HookPort_QuerySystemInformation(SystemHandleInformation);
 	if (!psystemhandleinfo)
 	{
 		return NULL;
 	}
-	//2¡¢1 ±¸·İ»º³åÇøÊ×µØÖ·
+	//2ã€1 å¤‡ä»½ç¼“å†²åŒºé¦–åœ°å€
 	pHandleBuf = psystemhandleinfo;
-	//2¡¢2 ÅĞ¶Ï¾ä±ú¸öÊı
+	//2ã€2 åˆ¤æ–­å¥æŸ„ä¸ªæ•°
 	Item_Count = *(PULONG)psystemhandleinfo;
 	if (Item_Count == 0)
 	{
@@ -1677,28 +1677,28 @@ VOID HookPort_HookKeUserModeCallback(IN ULONG Version_Win10_Flag)
 	PVOID 			pOriginalProcAddr = NULL;
 	volatile LONG * Mdlv1_KeUserModeCallback = NULL;
 	PMDL			MemoryDescriptorList = NULL;
-	//1¡¢¸ù¾İ°æ±¾ÅĞ¶Ï²éÕÒwin32k.sys»¹ÊÇwin32kfull.sys
+	//1ã€æ ¹æ®ç‰ˆæœ¬åˆ¤æ–­æŸ¥æ‰¾win32k.sysè¿˜æ˜¯win32kfull.sys
 	if (Version_Win10_Flag)
 	{
-		//Win10Ê¹ÓÃwin32kfull.sys
+		//Win10ä½¿ç”¨win32kfull.sys
 		memcpy(Win32k, WIN32KFULLSYS, strlen(WIN32KFULLSYS));
 	}
 	else
 	{
-		//·ÇWin10Ê¹ÓÃwin32k.sys
+		//éWin10ä½¿ç”¨win32k.sys
 		memcpy(Win32k, WIN32KSYS, strlen(WIN32KFULLSYS));
 	}
 	if (HookPort_GetModuleBaseAddress(Win32k, &pModuleBase, &ModuleSize, 0))
 	{
-		//´Óµ¼Èë±íÖĞ»ñÈ¡Ô­Ê¼µØÖ·
+		//ä»å¯¼å…¥è¡¨ä¸­è·å–åŸå§‹åœ°å€
 		pOriginalProc = HookPort_HookImportedFunction(pModuleBase, ModuleSize, "KeUserModeCallback", NTOSKERNL, &pOriginalProcAddr);
-		//ÅĞ¶ÏÊÇ·ñ¸øHook¹ı
+		//åˆ¤æ–­æ˜¯å¦ç»™Hookè¿‡
 		if ((pOriginalProc != Filter_KeUserModeCallbackDispatcher) && (pOriginalProc))
 		{
-			//±£´æÔ­Ê¼Êı¾İ
+			//ä¿å­˜åŸå§‹æ•°æ®
 			pOriginalKeUserModeCallbackAddr = pOriginalProcAddr;
-			OriginalKeUserModeCallback = (PVOID)pOriginalProc;			//ÕâÊÇÒ»¸öKeUserModeCallbackº¯ÊıÖ¸Õë
-			//È»ºóÊ¹ÓÃMDL°²È«hook
+			OriginalKeUserModeCallback = (PVOID)pOriginalProc;			//è¿™æ˜¯ä¸€ä¸ªKeUserModeCallbackå‡½æ•°æŒ‡é’ˆ
+			//ç„¶åä½¿ç”¨MDLå®‰å…¨hook
 			Mdlv1_KeUserModeCallback = HookPort_LockMemory(pOriginalProcAddr, sizeof(ULONG), (ULONG)&MemoryDescriptorList, Version_Win10_Flag);
 			if (Mdlv1_KeUserModeCallback)
 			{
@@ -1714,13 +1714,13 @@ VOID HookPort_HookKeUserModeCallback(IN ULONG Version_Win10_Flag)
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_InitSDT     
-// º¯ÊıËµÃ÷£º¹¹Ôìhook¿ò¼Ü   
-// IDAµØÖ· £ºsub_16B34
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º    
-// ·µ »Ø Öµ: NTSTATUS     
+// å‡½æ•°åç§°: HookPort_InitSDT     
+// å‡½æ•°è¯´æ˜ï¼šæ„é€ hookæ¡†æ¶   
+// IDAåœ°å€ ï¼šsub_16B34
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š    
+// è¿” å› å€¼: NTSTATUS     
 //************************************  
 NTSTATUS NTAPI HookPort_InitSDT()
 {
@@ -1736,38 +1736,38 @@ NTSTATUS NTAPI HookPort_InitSDT()
 	ULONG BuildNumber  = Global_osverinfo.dwBuildNumber;
 	ULONG MinorVersion = Global_osverinfo.dwMinorVersion;
 	ULONG MajorVersion = Global_osverinfo.dwMajorVersion;
-	//1¡¢»ñÈ¡Ô­Ê¼NTÄÚºË»ùµØÖ·
+	//1ã€è·å–åŸå§‹NTå†…æ ¸åŸºåœ°å€
 	if (!HookPort_GetModuleBaseAddress(0, &g_HookPort_Nt_Win32k_Data.NtData.NtImageBase, &g_HookPort_Nt_Win32k_Data.NtData.NtImageSize, 0))
 	{
-		KdPrint(("»ñÈ¡NTÄÚºË»ùÖ·Ê§°Ü\t\n"));
+		KdPrint(("è·å–NTå†…æ ¸åŸºå€å¤±è´¥\t\n"));
 		HookPort_RtlWriteRegistryValue(2);
 		return STATUS_UNSUCCESSFUL;
 	}
-	KdPrint(("NTÄÚºË»ùµØÖ·ÊÇ£º%X\t\n", g_HookPort_Nt_Win32k_Data.NtData.NtImageBase));
-	//2¡¢»ñÈ¡SSSDT»ùÖ·
+	KdPrint(("NTå†…æ ¸åŸºåœ°å€æ˜¯ï¼š%X\t\n", g_HookPort_Nt_Win32k_Data.NtData.NtImageBase));
+	//2ã€è·å–SSSDTåŸºå€
 	if (HookPort_GetModuleBaseAddress(WIN32KSYS, &pModuleBase, &ModuleSize, 0))
 	{
-		KdPrint(("win32kÄÚºË»ùµØÖ·ÊÇ£º%X\t\n", pModuleBase));
+		KdPrint(("win32kå†…æ ¸åŸºåœ°å€æ˜¯ï¼š%X\t\n", pModuleBase));
 		Global_Win32kFlag = 1;
 		if (!HookPort_GetShadowTableAddress(
 			&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase, //[Out]ShadowSSDT_GuiServiceTableBase
 			&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiNumberOfServices, //[Out]ShadowSSDT_GuiNumberOfServices
 			&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiParamTableBase,   //[Out]ShadowSSDT_GuiParamTableBase
-			g_HookPort_Nt_Win32k_Data.NtData.NtImageBase,									//[In]NtÄÚºËµÄ»ùµØÖ·
-			Global_Version_Win10_Flag,														//[In]Win10±êÖ¾
-			Global_osverinfo																//[In]°æ±¾ĞÅÏ¢
+			g_HookPort_Nt_Win32k_Data.NtData.NtImageBase,									//[In]Ntå†…æ ¸çš„åŸºåœ°å€
+			Global_Version_Win10_Flag,														//[In]Win10æ ‡å¿—
+			Global_osverinfo																//[In]ç‰ˆæœ¬ä¿¡æ¯
 			))
 		{
 			HookPort_RtlWriteRegistryValue(1);
 			return STATUS_UNSUCCESSFUL;
 		}
 	}
-	//3¡¢»ñÈ¡SSDT»ùÖ·
+	//3ã€è·å–SSDTåŸºå€
 	Status = HookPort_GetSSDTTableAddress(
 		&g_HookPort_Nt_Win32k_Data.SSDTTable_Data.SSDT_KeServiceTableBase,			//[Out]SSDT_KeServiceTableBase
 		&g_HookPort_Nt_Win32k_Data.SSDTTable_Data.SSDT_KeNumberOfServices,			//[Out]SSDT_KeNumberOfServices
 		&g_HookPort_Nt_Win32k_Data.SSDTTable_Data.SSDT_KeParamTableBase,			//[Out]SSDT_KeParamTableBase
-		g_HookPort_Nt_Win32k_Data.NtData.NtImageBase								//[In]NtÄÚºËµÄ»ùµØÖ·
+		g_HookPort_Nt_Win32k_Data.NtData.NtImageBase								//[In]Ntå†…æ ¸çš„åŸºåœ°å€
 		);
 	if (!NT_SUCCESS(Status))
 	{
@@ -1775,23 +1775,23 @@ NTSTATUS NTAPI HookPort_InitSDT()
 		KdPrint(("HookPort: HookPort_GetSSDTTableAddress failed,err=%08x\n", Status));
 		return Status;
 	}
-	KdPrint(("»ñÈ¡SSDT±í³É¹¦\t\n"));
-	//4¡¢»ñÈ¡±¾µØº¯Êı»ùÖ·
+	KdPrint(("è·å–SSDTè¡¨æˆåŠŸ\t\n"));
+	//4ã€è·å–æœ¬åœ°å‡½æ•°åŸºå€
 	if (!HookPort_GetAllNativeFunAddress(g_HookPort_Nt_Win32k_Data.NtData.NtImageBase, Global_osverinfo))
 	{
 		KdPrint(("HookPort_GetAllNativeFunAddress failed\t\n"));
 		HookPort_RtlWriteRegistryValue(4);
 		return STATUS_UNSUCCESSFUL;
 	}
-	//4¡¢1 ³õÊ¼»¯¹ıÂËÊı×é
+	//4ã€1 åˆå§‹åŒ–è¿‡æ»¤æ•°ç»„
 	HookPort_InitFilterTable();
-	//5¡¢×¼±¸»º³åÇø´æ·ÅHOOKĞèÒªÓÃµÄÊı¾İ
+	//5ã€å‡†å¤‡ç¼“å†²åŒºå­˜æ”¾HOOKéœ€è¦ç”¨çš„æ•°æ®
 	if (!HookPort_AllocFilterTable())
 	{
 		HookPort_RtlWriteRegistryValue(0x12);
 		return STATUS_NO_MEMORY;
 	}
-	//6¡¢ÅĞ¶Ï·Çwin10»òÔò´æÔÚwin32k.sys
+	//6ã€åˆ¤æ–­éwin10æˆ–åˆ™å­˜åœ¨win32k.sys
 	if (!Global_Version_Win10_Flag || Global_Win32kFlag)
 	{
 		if (!HookPort_InitProxyAddress(0))
@@ -1805,8 +1805,8 @@ NTSTATUS NTAPI HookPort_InitSDT()
 	{
 		HookPort_SetFlag_On();
 	}
-	//7¡¢Ê¹ÓÃZwSetEvent»ñÈ¡KiFastCallEntryµØÖ·
-	if (HookPort_InstallZwSetEventHook() != STATUS_SUCCESS)// Ê¹ÓÃZwSetEvent»ñÈ¡KiFastCallEntryµØÖ·
+	//7ã€ä½¿ç”¨ZwSetEventè·å–KiFastCallEntryåœ°å€
+	if (HookPort_InstallZwSetEventHook() != STATUS_SUCCESS)// ä½¿ç”¨ZwSetEventè·å–KiFastCallEntryåœ°å€
 	{
 		if (filter_function_table_Size_temp)
 		{
@@ -1815,7 +1815,7 @@ NTSTATUS NTAPI HookPort_InitSDT()
 		ExFreePool(g_SS_Filter_Table);
 		return STATUS_UNSUCCESSFUL;
 	}
-	//8¡¢´´½¨½ø³Ì¡¢Ïß³Ì¡¢Ä£¿é»Øµ÷
+	//8ã€åˆ›å»ºè¿›ç¨‹ã€çº¿ç¨‹ã€æ¨¡å—å›è°ƒ
 	PsSetCreateProcessNotifyRoutine(Filter_CreateProcessNotifyRoutine, FALSE);
 	PsSetLoadImageNotifyRoutine(Filter_LoadImageNotifyRoutine);
 	PsSetCreateThreadNotifyRoutine(Filter_CreateThreadNotifyRoutine);
@@ -1828,101 +1828,101 @@ NTSTATUS NTAPI HookPort_InitSDT()
 			pPsSetCreateProcessNotifyRoutineEx(Filter_CreateProcessNotifyRoutineEx, FALSE);
 		}
 	}
-	//9¡¢1 ÅĞ¶ÏÊÇ·ñ´æÔÚwin32k
+	//9ã€1 åˆ¤æ–­æ˜¯å¦å­˜åœ¨win32k
 	if (Global_Win32kFlag)
 	{
-		//9¡¢2 win10´¦ÀíºóÆÚÓĞ¿ÕÔÙÄæÏò
+		//9ã€2 win10å¤„ç†åæœŸæœ‰ç©ºå†é€†å‘
 		if (Global_Version_Win10_Flag)
 		{
-			//ÉèÖÃZwSetSystemInformationº¯ÊıµÄhook¿ª¹Ø
+			//è®¾ç½®ZwSetSystemInformationå‡½æ•°çš„hookå¼€å…³
 			g_SS_Filter_Table->SwitchTableForSSDT[g_SSDT_Func_Index_Data.ZwSetSystemInformationIndex] = 1;
-			//»ñÈ¡csrssµÄ½ø³Ìid
+			//è·å–csrssçš„è¿›ç¨‹id
 			ApiPortProcessId = HookPort_GetApiPortProcessId(Global_osverinfo);
 			if (ApiPortProcessId)
 			{
 				if (NT_SUCCESS(PsLookupProcessByProcessId(ApiPortProcessId, &Process)))
 				{
-					//¸½¼ÓGUIÏß³ÌºóĞø·½±ã´¦ÀíShadowSSDT
+					//é™„åŠ GUIçº¿ç¨‹åç»­æ–¹ä¾¿å¤„ç†ShadowSSDT
 					KeStackAttachProcess(Process, &ApcState);
-					//»ñÈ¡win10_Win7µÄShadowµÄÖµ
-					//»¹ÓĞ¸öº¯ÊıÎ´ÄæÏò£¬¸Ğ¾õÎŞÓÃsub_14F82
+					//è·å–win10_Win7çš„Shadowçš„å€¼
+					//è¿˜æœ‰ä¸ªå‡½æ•°æœªé€†å‘ï¼Œæ„Ÿè§‰æ— ç”¨sub_14F82
 					if (HookPort_GetShadowTableAddress_Win10(
-						pModuleBase,																				//[In]Win32»ùµØÖ·
+						pModuleBase,																				//[In]Win32åŸºåœ°å€
 						&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase,				//[Out]ShadowSSDT_GuiServiceTableBase
 						&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiNumberOfServices,				//[Out]ShadowSSDT_GuiNumberOfServices
 						&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiParamTableBase,				//[Out]ShadowSSDT_GuiParamTableBase
 						&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase_Win10_14316, //[Out]ShadowSSDT_GuiServiceTableBase_Win10_14316
 						&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiNumberOfServices_Win10_14316, //[Out]ShadowSSDT_GuiNumberOfServices_Win10_14316
 						&g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiParamTableBase_Win10_14316,	//[Out]ShadowSSDT_GuiParamTableBase_Win10_14316
-						Global_osverinfo																			//[In]°æ±¾ĞÅÏ¢
+						Global_osverinfo																			//[In]ç‰ˆæœ¬ä¿¡æ¯
 						))
 					{
-						//³õÊ¼»¯¹ıÂËÊı×é
+						//åˆå§‹åŒ–è¿‡æ»¤æ•°ç»„
 						HookPort_InitFilterTable();
-						//´¦ÀíShadowSSDThook²¿·Ö
+						//å¤„ç†ShadowSSDThookéƒ¨åˆ†
 						HookPort_InitProxyAddress(1);
 					}
 					else
 					{
 						g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase = 0;
 					}
-					//½â³ı¸½¼Ó
+					//è§£é™¤é™„åŠ 
 					KeUnstackDetachProcess(&ApcState);
 					ObfDereferenceObject(Process);
 				}
 			}
 			else
 			{
-				//Ê§°Ü¾Í²»´¦ÀíShadowSSDT
+				//å¤±è´¥å°±ä¸å¤„ç†ShadowSSDT
 				g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase = 0;
 			}
 			//HookPort_GetApiPortProcessId_Win10();
 		}
-		// ·Çwin10´¦Àí
+		// éwin10å¤„ç†
 		else
 		{
-			//»ñÈ¡csrssµÄ½ø³Ìid
+			//è·å–csrssçš„è¿›ç¨‹id
 			ApiPortProcessId = HookPort_GetApiPortProcessId(Global_osverinfo);
 			if (ApiPortProcessId)
 			{
 				if (NT_SUCCESS(PsLookupProcessByProcessId(ApiPortProcessId, &Process)))
 				{
-					//¸½¼ÓGUIÏß³ÌºóĞø·½±ã´¦ÀíShadowSSDT
+					//é™„åŠ GUIçº¿ç¨‹åç»­æ–¹ä¾¿å¤„ç†ShadowSSDT
 					KeStackAttachProcess(Process, &ApcState);
-					//´Ëº¯ÊıĞŞ¸ÄÊäÈë±í°²×°KeUserModeCallback¹³×Ó
+					//æ­¤å‡½æ•°ä¿®æ”¹è¾“å…¥è¡¨å®‰è£…KeUserModeCallbacké’©å­
 					HookPort_HookKeUserModeCallback(Global_Version_Win10_Flag);
-					//´¦ÀíShadowSSDThook²¿·Ö
+					//å¤„ç†ShadowSSDThookéƒ¨åˆ†
 					HookPort_InitProxyAddress(1);
-					//½â³ı¸½¼Ó
+					//è§£é™¤é™„åŠ 
 					KeUnstackDetachProcess(&ApcState);
 					ObfDereferenceObject(Process);
 				}
 			}
 			else
 			{
-				//Ê§°Ü¾Í²»´¦ÀíShadowSSDT
+				//å¤±è´¥å°±ä¸å¤„ç†ShadowSSDT
 				g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase = 0;
 			}
 		}
 	}
-	//10¡¢ ·Çwin10
+	//10ã€ éwin10
 	else if (!Global_Version_Win10_Flag)
 	{
-		//ÉèÖÃZwSetSystemInformationº¯ÊıµÄhook¿ª¹Ø
+		//è®¾ç½®ZwSetSystemInformationå‡½æ•°çš„hookå¼€å…³
 		g_SS_Filter_Table->SwitchTableForSSDT[g_SSDT_Func_Index_Data.ZwSetSystemInformationIndex] = 1;
 	}
 	return STATUS_SUCCESS;
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_AllocFilterRuleTable     
-// º¯ÊıËµÃ÷£º³õÊ¼»¯¹æÔò£¬ĞÂ½¨¹æÔò»á¼Óµ½¹æÔòÁ´ÖĞ    
-// IDAµØÖ· £º
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2020/01/04     
-// ·µ »Ø Öµ: PVOID NTAPI     
-// ²Î    Êı: IN ULONG NumberOfBytes    > 2¿ª¹ØÖÃ0£¨¹Ø±Õ£©£¬< 2¿ª¹ØÖÃ1£¨Æô¶¯£© 
+// å‡½æ•°åç§°: HookPort_AllocFilterRuleTable     
+// å‡½æ•°è¯´æ˜ï¼šåˆå§‹åŒ–è§„åˆ™ï¼Œæ–°å»ºè§„åˆ™ä¼šåŠ åˆ°è§„åˆ™é“¾ä¸­    
+// IDAåœ°å€ ï¼š
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2020/01/04     
+// è¿” å› å€¼: PVOID NTAPI     
+// å‚    æ•°: IN ULONG NumberOfBytes    > 2å¼€å…³ç½®0ï¼ˆå…³é—­ï¼‰ï¼Œ< 2å¼€å…³ç½®1ï¼ˆå¯åŠ¨ï¼‰ 
 //************************************ 
 PVOID NTAPI HookPort_AllocFilterRuleTable(IN ULONG NumberOfBytes)
 {
@@ -1931,47 +1931,47 @@ PVOID NTAPI HookPort_AllocFilterRuleTable(IN ULONG NumberOfBytes)
 	KIRQL old_irql;
 	PFILTERFUN_RULE_TABLE	prule_table, ptemp;
 	ULONG	flag = (NumberOfBytes < 2) ? 1 : 0;
-	//1¡¢new³ö±£´æ¹æÔòµÄ¿Õ¼ä
+	//1ã€newå‡ºä¿å­˜è§„åˆ™çš„ç©ºé—´
 	prule_table = (PFILTERFUN_RULE_TABLE)ExAllocatePoolWithTag(NonPagedPool, sizeof(FILTERFUN_RULE_TABLE), HOOKPORT_POOLTAG3);
 	if (!prule_table)
 	{
 		return NULL;
 	}
-	//1¡¢1 ±£´æ¸Ã½á¹¹µÄ´óĞ¡
+	//1ã€1 ä¿å­˜è¯¥ç»“æ„çš„å¤§å°
 	RtlZeroMemory(prule_table, sizeof(FILTERFUN_RULE_TABLE));
 	prule_table->Size = sizeof(FILTERFUN_RULE_TABLE);
 
-	//1¡¢2 new³öSSDT½á¹¹±íÏî¸öÊı´óĞ¡µÄ¿Õ¼ä
+	//1ã€2 newå‡ºSSDTç»“æ„è¡¨é¡¹ä¸ªæ•°å¤§å°çš„ç©ºé—´
 	prule_table->SSDTRuleTableBase = ExAllocatePoolWithTag(NonPagedPool, g_HookPort_Nt_Win32k_Data.SSDTTable_Data.SSDT_KeNumberOfServices * sizeof(ULONG), HOOKPORT_POOLTAG4);
 	if (!prule_table->SSDTRuleTableBase)
 	{
 		ExFreePool(prule_table);
 		return NULL;
 	}
-	//1¡¢3 Ñ­»·Ìî³äSSDTRuleTableBase½á¹¹ÖÃ1¡¢ÖÃ0
+	//1ã€3 å¾ªç¯å¡«å……SSDTRuleTableBaseç»“æ„ç½®1ã€ç½®0
 	for (ULONG i_v4 = 0; i_v4 < g_HookPort_Nt_Win32k_Data.SSDTTable_Data.SSDT_KeNumberOfServices; i_v4++)
 	{
 		prule_table->SSDTRuleTableBase[i_v4] = flag;
 	}
 
-	//1¡¢4 ´¦ÀíShadowSSDT_GuiNumberOfServices²¿·Ö
+	//1ã€4 å¤„ç†ShadowSSDT_GuiNumberOfServiceséƒ¨åˆ†
 	if (g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiNumberOfServices)
 	{
 		AllocSize = g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiNumberOfServices * sizeof(ULONG);
 	}
 	else
 	{
-		AllocSize = 8000;							//ÕÒ²»µ½ÉèÖÃ¸ö×î´óÖµ
+		AllocSize = 8000;							//æ‰¾ä¸åˆ°è®¾ç½®ä¸ªæœ€å¤§å€¼
 	}
 
-	//1¡¢5 new³öShadowSSDT½á¹¹±íÏî¸öÊı´óĞ¡µÄ¿Õ¼ä
+	//1ã€5 newå‡ºShadowSSDTç»“æ„è¡¨é¡¹ä¸ªæ•°å¤§å°çš„ç©ºé—´
 	prule_table->ShadowSSDTRuleTableBase = ExAllocatePoolWithTag(NonPagedPool, AllocSize, HOOKPORT_POOLTAG5);
 	if (!prule_table->ShadowSSDTRuleTableBase) {
 		ExFreePool(prule_table->SSDTRuleTableBase);
 		ExFreePool(prule_table);
 		return NULL;
 	}
-	//1¡¢6 Ñ­»·Ìî³äShadowSSDTRuleTableBase½á¹¹ÖÃ1¡¢ÖÃ0
+	//1ã€6 å¾ªç¯å¡«å……ShadowSSDTRuleTableBaseç»“æ„ç½®1ã€ç½®0
 	for (Count = 0; Count < AllocSize / sizeof(ULONG); Count++) {
 		prule_table->ShadowSSDTRuleTableBase[Count] = flag;
 	}
@@ -1994,7 +1994,7 @@ PVOID NTAPI HookPort_AllocFilterRuleTable(IN ULONG NumberOfBytes)
 	return prule_table;
 }
 
-//ÉèÖÃ¹æÔò¿ª¹Ø
+//è®¾ç½®è§„åˆ™å¼€å…³
 VOID NTAPI HookPort_SetFilterRule(IN PFILTERFUN_RULE_TABLE	filter_rule,IN ULONG  index,IN ULONG  rule)
 {
 	ULONG	service_index;
@@ -2009,7 +2009,7 @@ VOID NTAPI HookPort_SetFilterRule(IN PFILTERFUN_RULE_TABLE	filter_rule,IN ULONG 
 		return;
 	}
 
-	//ShadowSSDT²¿·Ö
+	//ShadowSSDTéƒ¨åˆ†
 	if (_CHECK_IS_SHADOW_CALL(service_index)) {
 		filter_rule->ShadowSSDTRuleTableBase[service_index & 0xFFF] = rule;
 		return;
@@ -2067,10 +2067,10 @@ VOID NTAPI HookPort_SetFilterRule(IN PFILTERFUN_RULE_TABLE	filter_rule,IN ULONG 
 	return;
 }
 
-//ÉèÖÃ¹æÔòÃû×Ö
+//è®¾ç½®è§„åˆ™åå­—
 ULONG NTAPI HookPort_SetFilterRuleName(IN PFILTERFUN_RULE_TABLE FilterFun_Rule_table_head, IN CHAR* FilterRuleName)
 {
-	ULONG BuffLenMax = 0xF;			//¹æÔòÃû×Ö×î´ó³¤¶È
+	ULONG BuffLenMax = 0xF;			//è§„åˆ™åå­—æœ€å¤§é•¿åº¦
 	ULONG BuffLen = 0;
 	RtlZeroMemory(FilterFun_Rule_table_head->FilterRuleName, sizeof(FilterFun_Rule_table_head->FilterRuleName));
 	BuffLen = strlen(FilterRuleName);
@@ -2082,14 +2082,14 @@ ULONG NTAPI HookPort_SetFilterRuleName(IN PFILTERFUN_RULE_TABLE FilterFun_Rule_t
 	return BuffLen;
 }
 
-//ÉèÖÃ¹æÔò¹ıÂËº¯Êı
+//è®¾ç½®è§„åˆ™è¿‡æ»¤å‡½æ•°
 BOOLEAN NTAPI HookPort_SetFilterSwitchFunction(IN PFILTERFUN_RULE_TABLE filter_rule, IN ULONG index_a2, OUT PVOID func_addr)
 {
 	ULONG	service_index;
 	ULONG   Local_Index;
 	if ((index_a2 <= FILTERFUNCNT - 1) && (index_a2 != 12))
 	{
-		//1¡¢Ìî³ä¹æÔòµÄÄ£¿éĞÅÏ¢¡¢Ä£¿é´óĞ¡¡¢¹æÔòÃû
+		//1ã€å¡«å……è§„åˆ™çš„æ¨¡å—ä¿¡æ¯ã€æ¨¡å—å¤§å°ã€è§„åˆ™å
 		if (func_addr && KeGetCurrentIrql() < DISPATCH_LEVEL)
 		{
 			if (filter_rule->FilterRuleName[0])
@@ -2107,13 +2107,13 @@ BOOLEAN NTAPI HookPort_SetFilterSwitchFunction(IN PFILTERFUN_RULE_TABLE filter_r
 
 		service_index = filter_function_table[index_a2];
 
-		//2¡¢¹ıÂËµôÎŞĞ§²¿·Ö,2000¾ÍÊÇÄ¬ÈÏÖµ£¨ÎŞĞ§Öµ£©
+		//2ã€è¿‡æ»¤æ‰æ— æ•ˆéƒ¨åˆ†,2000å°±æ˜¯é»˜è®¤å€¼ï¼ˆæ— æ•ˆå€¼ï¼‰
 		if (service_index == g_SSDTServiceLimit) {
 			filter_rule->FakeServiceRoutine[index_a2] = (PULONG)func_addr;
 			return TRUE;
 		}
 
-		//3¡¢³õÊ¼»¯ShadowSSDT²¿·Ö£¨0x1000£©
+		//3ã€åˆå§‹åŒ–ShadowSSDTéƒ¨åˆ†ï¼ˆ0x1000ï¼‰
 		if (_CHECK_IS_SHADOW_CALL(service_index))
 		{
 			g_SS_Filter_Table->SwitchTableForShadowSSDT[(service_index & 0xFFF)] = 1;
@@ -2160,30 +2160,30 @@ BOOLEAN NTAPI HookPort_SetFilterSwitchFunction(IN PFILTERFUN_RULE_TABLE filter_r
 	return 0;
 }
 
-//³õÊ¼»¯µ¼³ö½Ó¿Ú
+//åˆå§‹åŒ–å¯¼å‡ºæ¥å£
 ULONG NTAPI HookPort_InitDeviceExtInterface(IN PDEVICE_OBJECT DeviceObject)
 {
 	PHOOKPORT_EXTENSION pHookPortExt;
 	pHookPortExt = DeviceObject->DeviceExtension;
 	pHookPortExt->State = (PULONG)3;
-	pHookPortExt->HookPort_FilterRule_Init = HookPort_AllocFilterRuleTable;					//³õÊ¼»¯¹æÔò
-	pHookPortExt->HookPort_SetFilterSwitchFunction = HookPort_SetFilterSwitchFunction;		//ÉèÖÃ¹æÔò¹ıÂËº¯Êı
-	pHookPortExt->HookPort_SetFilterRule = HookPort_SetFilterRule;							//ÉèÖÃ¹æÔò¿ª¹Ø
-	pHookPortExt->HookPort_SetFilterRuleName = HookPort_SetFilterRuleName;					//ÉèÖÃ¹æÔòÃû×Ö
-	pHookPortExt->Value3F1 = HOOKPORT_VERSION;												//°æ±¾
+	pHookPortExt->HookPort_FilterRule_Init = HookPort_AllocFilterRuleTable;					//åˆå§‹åŒ–è§„åˆ™
+	pHookPortExt->HookPort_SetFilterSwitchFunction = HookPort_SetFilterSwitchFunction;		//è®¾ç½®è§„åˆ™è¿‡æ»¤å‡½æ•°
+	pHookPortExt->HookPort_SetFilterRule = HookPort_SetFilterRule;							//è®¾ç½®è§„åˆ™å¼€å…³
+	pHookPortExt->HookPort_SetFilterRuleName = HookPort_SetFilterRuleName;					//è®¾ç½®è§„åˆ™åå­—
+	pHookPortExt->Value3F1 = HOOKPORT_VERSION;												//ç‰ˆæœ¬
 	return pHookPortExt;
 }
 
-//»ñÈ¡Çı¶¯µÄÆô¶¯¼ÓÔØË³Ğò 
+//è·å–é©±åŠ¨çš„å¯åŠ¨åŠ è½½é¡ºåº 
 ULONG HookPort_1858E(OUT ULONG *Flag_1, OUT ULONG *Flag_2, OUT PVOID *ValueDataBuff)
 {
 	BOOLEAN result; // eax@2
-	ULONG LoadOrderIndex_Oneself; //×ÔÉíÇı¶¯µÄLoadOrderIndex£¨¼ÓÔØË³Ğò£©
-	ULONG LoadOrderIndex_Assign; //Ö¸¶¨Çı¶¯µÄLoadOrderIndex£¨¼ÓÔØË³Ğò£©
+	ULONG LoadOrderIndex_Oneself; //è‡ªèº«é©±åŠ¨çš„LoadOrderIndexï¼ˆåŠ è½½é¡ºåºï¼‰
+	ULONG LoadOrderIndex_Assign; //æŒ‡å®šé©±åŠ¨çš„LoadOrderIndexï¼ˆåŠ è½½é¡ºåºï¼‰
 	if (HookPort_GetModuleBaseAddress_EncryptHash(Global_Hash_2, 0, 0, &LoadOrderIndex_Assign))
 	{
-		//»ñÈ¡×ÔÉíÇı¶¯µÄ¼ÓÔØË³Ğò
-		//PCHunterµÄÇı¶¯Ä£¿é->¼ÓÔØË³Ğò
+		//è·å–è‡ªèº«é©±åŠ¨çš„åŠ è½½é¡ºåº
+		//PCHunterçš„é©±åŠ¨æ¨¡å—->åŠ è½½é¡ºåº
 		result = HookPort_GetModuleLoadOrderIndex(Global_DriverObject->DriverStart, &LoadOrderIndex_Oneself);
 		if (result)
 		{
@@ -2202,19 +2202,19 @@ ULONG HookPort_1858E(OUT ULONG *Flag_1, OUT ULONG *Flag_2, OUT PVOID *ValueDataB
 	return result;
 }
 
-//º¯Êı¹¦ÄÜ£º
-//1¡¢¸ù¾İÌõ¼şÅĞ¶ÏÊÇ·ñÆôÓÃFakeKiSystemServiceµÄhook
-//2¡¢³õÊ¼»¯À©Õ¹½á¹¹£¬µ¼³ö¸øÁíÍâÒ»¸ösysÊ¹ÓÃ
+//å‡½æ•°åŠŸèƒ½ï¼š
+//1ã€æ ¹æ®æ¡ä»¶åˆ¤æ–­æ˜¯å¦å¯ç”¨FakeKiSystemServiceçš„hook
+//2ã€åˆå§‹åŒ–æ‰©å±•ç»“æ„ï¼Œå¯¼å‡ºç»™å¦å¤–ä¸€ä¸ªsysä½¿ç”¨
 PVOID HookPort_19230()
 {
-	CHAR			Flag; // di@2 ¿ª¹Ø£¨ÌáÊ¾´íÎóµÄ²»Í¬ÀàĞÍ£©
+	CHAR			Flag; // di@2 å¼€å…³ï¼ˆæç¤ºé”™è¯¯çš„ä¸åŒç±»å‹ï¼‰
 	ULONG           Flag_1, Flag_2;
 	PVOID           ValueDataBuff = NULL;
 	PVOID			result;
 	PVOID 			pModuleBase = NULL;
 	ULONG 			ModuleSize = NULL;
 	USHORT          LoadOrderIndex = NULL;
-	//³õÊ¼»¯¹şÏ£Öµ
+	//åˆå§‹åŒ–å“ˆå¸Œå€¼
 	Global_Hash_1 = 0x42503C81;
 	Global_Hash_2 = 0x4D71E020;
 	Global_Hash_3 = 0xB8178767;
@@ -2223,7 +2223,7 @@ PVOID HookPort_19230()
 	if (HookPort_GetModuleBaseAddress_EncryptHash(Global_Hash_1, &pModuleBase, &ModuleSize, 0))
 	{
 		Flag = 1;
-		//Î´Íê´ıĞøWin7²âÊÔÎŞ·¨½øÈë£¬´ıºóĞøÌí¼ÓHookPort_SetFakeKiSystemServiceData()º¯ÊıÓëFake_ZwSetEventº¯ÊıÍ¬Àí£¬¶¼ÊÇhook KiSystemService or KiFastCallEntry
+		//æœªå®Œå¾…ç»­Win7æµ‹è¯•æ— æ³•è¿›å…¥ï¼Œå¾…åç»­æ·»åŠ HookPort_SetFakeKiSystemServiceData()å‡½æ•°ä¸Fake_ZwSetEventå‡½æ•°åŒç†ï¼Œéƒ½æ˜¯hook KiSystemService or KiFastCallEntry
 		if (HookPort_CheckSysVersion(Global_osverinfo, g_HookPort_Nt_Win32k_Data.NtData.NtImageBase) == 1 && !HookPort_CheckCpuNumber(Global_osverinfo) && HookPort_SetFakeKiSystemServiceData(pModuleBase, ModuleSize))
 		{
 			HookPort_GetModuleBaseAddress_EncryptHash(Global_Hash_2, &dword_1B13C_ModuleBase, &dword_1B140_ModuleSize, 0);
@@ -2236,7 +2236,7 @@ PVOID HookPort_19230()
 		Flag = 1;
 		dword_1B124 = 1;
 	}
-	//»ñÈ¡Çı¶¯µÄÆô¶¯¼ÓÔØË³Ğò
+	//è·å–é©±åŠ¨çš„å¯åŠ¨åŠ è½½é¡ºåº
 	result = (PVOID)HookPort_1858E(&Flag_1, &Flag_2, &ValueDataBuff);
 	if (result)
 	{
@@ -2244,12 +2244,12 @@ PVOID HookPort_19230()
 		{
 			if (Flag_2)
 			{
-				//Int 2E KiSystemService Win2000ÒÔÏÂ²ÅÓĞ
-				HookPort_SetFakeKiSystemServiceAddress();		//hook KiSystemService jmp µ½×Ô¼ºº¯Êı£¨Ö»Ìæ»»µØÖ·£©
+				//Int 2E KiSystemService Win2000ä»¥ä¸‹æ‰æœ‰
+				HookPort_SetFakeKiSystemServiceAddress();		//hook KiSystemService jmp åˆ°è‡ªå·±å‡½æ•°ï¼ˆåªæ›¿æ¢åœ°å€ï¼‰
 			}
 			if (!g_HookPort_Nt_Win32k_Data.ShadowSSDTTable_Data.ShadowSSDT_GuiServiceTableBase && !Flag_2)
 			{
-				//Ğ´×¢²á±íĞÅÏ¢
+				//å†™æ³¨å†Œè¡¨ä¿¡æ¯
 				//HookPort_RtlWriteRegistryValue_1(Flag, ValueDataBuff, 0);
 			}
 		}
@@ -2257,18 +2257,18 @@ PVOID HookPort_19230()
 		{
 			dword_1B120 = 1;
 		}
-		//³õÊ¼»¯¹æÔò£¬ĞÂ½¨¹æÔò»á¼Óµ½¹æÔòÁ´ÖĞ
+		//åˆå§‹åŒ–è§„åˆ™ï¼Œæ–°å»ºè§„åˆ™ä¼šåŠ åˆ°è§„åˆ™é“¾ä¸­
 		result = HookPort_AllocFilterRuleTable(3u);
 		g_FilterFun_Rule_table_head_Temp = result;
 		if (g_FilterFun_Rule_table_head_Temp)
 		{
-			//³õÊ¼»¯¹æÔòÃû×Ö
+			//åˆå§‹åŒ–è§„åˆ™åå­—
 			HookPort_SetFilterRuleName(g_FilterFun_Rule_table_head_Temp, "HPATBK");
-			//ÉèÖÃ¹æÔò¹ıÂËº¯Êı
+			//è®¾ç½®è§„åˆ™è¿‡æ»¤å‡½æ•°
 			HookPort_SetFilterSwitchFunction(g_FilterFun_Rule_table_head_Temp, LoadImageNotifyRoutine_FilterIndex, Fake_LoadImageNotifyRoutine);
-			//ÉèÖÃ¹æ¾Ø¿ª¹Ø
+			//è®¾ç½®è§„çŸ©å¼€å…³
 			HookPort_SetFilterRule(g_FilterFun_Rule_table_head_Temp, LoadImageNotifyRoutine_FilterIndex, 1);
-			//×¼±¸¾ÍĞ÷
+			//å‡†å¤‡å°±ç»ª
 			g_FilterFun_Rule_table_head_Temp->IsFilterFunFilledReady = 1;
 		}
 	}
@@ -2276,15 +2276,15 @@ PVOID HookPort_19230()
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: HookPort_Close     
-// º¯ÊıËµÃ÷£º    
-// IDAµØÖ· £ºsub_1060C
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º     
-// ·µ »Ø Öµ: NTSTATUS     
-// ²Î    Êı: IN PDEVICE_OBJECT DeviceObject     
-// ²Î    Êı: IN PIRP Irp     
+// å‡½æ•°åç§°: HookPort_Close     
+// å‡½æ•°è¯´æ˜ï¼š    
+// IDAåœ°å€ ï¼šsub_1060C
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š     
+// è¿” å› å€¼: NTSTATUS     
+// å‚    æ•°: IN PDEVICE_OBJECT DeviceObject     
+// å‚    æ•°: IN PIRP Irp     
 //************************************  
 NTSTATUS	HookPort_Close(
 	IN PDEVICE_OBJECT DeviceObject,
@@ -2297,13 +2297,13 @@ NTSTATUS	HookPort_Close(
 	return 0;
 }
 
-//²»¸ĞĞËÈ¤µÄÍ¨ÓÃ´¦Àí
+//ä¸æ„Ÿå…´è¶£çš„é€šç”¨å¤„ç†
 NTSTATUS HookPort_CommonProc(
 	IN PDEVICE_OBJECT DeviceObject,
 	IN PIRP Irp
 	)
 {
-	//Ö±½ÓÍê³É£¬·µ»Ø³É¹¦
+	//ç›´æ¥å®Œæˆï¼Œè¿”å›æˆåŠŸ
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
 	return STATUS_SUCCESS;
 }
@@ -2323,65 +2323,65 @@ NTSTATUS	HookPort_Create(
 	IrpStack = IoGetCurrentIrpStackLocation(Irp);
     Create_SecurityContext = IrpStack->Parameters.Create.SecurityContext;
 	Create_AccessState = Create_SecurityContext->AccessState;
-	//1¡¢±ØĞëÊÇÓ¦ÓÃ²ãµ÷ÓÃ
+	//1ã€å¿…é¡»æ˜¯åº”ç”¨å±‚è°ƒç”¨
 	if (Irp->RequestorMode)
 	{
-		//2¡¢ºóÃæµÄ¾ÍÊÇ»ñÈ¡È¨ÏŞ£¬È»ºóÅĞ¶ÏÈ¨ÏŞÊÇ·ñÔÚadministrators×éÖĞ
+		//2ã€åé¢çš„å°±æ˜¯è·å–æƒé™ï¼Œç„¶ååˆ¤æ–­æƒé™æ˜¯å¦åœ¨administratorsç»„ä¸­
 		if (Create_AccessState)
 		{
-			//»ñÈ¡SubjectSecurityContext
+			//è·å–SubjectSecurityContext
 			RtlCopyMemory(&Create_SubjectSecurityContext, &Create_AccessState->SubjectSecurityContext, sizeof(SECURITY_SUBJECT_CONTEXT));
 		}
 		else
 		{
-			//²»´æÔÚ¾Íº¯Êı»ñÈ¡ÁË£¬Õâ¸öĞèÒªÊÍ·ÅµÄ
+			//ä¸å­˜åœ¨å°±å‡½æ•°è·å–äº†ï¼Œè¿™ä¸ªéœ€è¦é‡Šæ”¾çš„
 			SeCaptureSubjectContext(&Create_SubjectSecurityContext);
 			SeCaptureSubjectContext_Flag = TRUE;
 		}
-		//3¡¢Ö÷ÒªÅĞ¶ÏClientToken or PrimaryTokenÊÇ·ñÔÚadministrators×éÖĞ
+		//3ã€ä¸»è¦åˆ¤æ–­ClientToken or PrimaryTokenæ˜¯å¦åœ¨administratorsç»„ä¸­
 		if (!Create_SubjectSecurityContext.ClientToken && Create_SubjectSecurityContext.PrimaryToken)
 		{
-			//ÁîÅÆ°üº¬±¾µØadministrators×é·µ»ØÕæ£¬·ñÔò¼Ù
+			//ä»¤ç‰ŒåŒ…å«æœ¬åœ°administratorsç»„è¿”å›çœŸï¼Œå¦åˆ™å‡
 			if (SeTokenIsAdmin(Create_SubjectSecurityContext.ClientToken))
 			{
-				//ºÏ·¨·µ»Ø
+				//åˆæ³•è¿”å›
 				Status = STATUS_SUCCESS;
 			}
 			else
 			{
-				//È¨ÏŞ²»×ã
+				//æƒé™ä¸è¶³
 				Status = STATUS_PRIVILEGE_NOT_HELD;
 			}
 		}
-		//ÅĞ¶ÏÁîÅÆµÈ¼¶£¬ÖµÔ½´óÄÜÁ¦Ô½¸ß
+		//åˆ¤æ–­ä»¤ç‰Œç­‰çº§ï¼Œå€¼è¶Šå¤§èƒ½åŠ›è¶Šé«˜
 		else if (Create_SubjectSecurityContext.ClientToken && Create_SubjectSecurityContext.ImpersonationLevel > SecurityIdentification)
 		{
-			//ÁîÅÆ°üº¬±¾µØadministrators×é·µ»ØÕæ£¬·ñÔò¼Ù
+			//ä»¤ç‰ŒåŒ…å«æœ¬åœ°administratorsç»„è¿”å›çœŸï¼Œå¦åˆ™å‡
 			if (SeTokenIsAdmin(Create_SubjectSecurityContext.ClientToken))
 			{
-				//ºÏ·¨·µ»Ø
+				//åˆæ³•è¿”å›
 				Status = STATUS_SUCCESS;
 			}
 			else
 			{
-				//È¨ÏŞ²»×ã
+				//æƒé™ä¸è¶³
 				Status = STATUS_PRIVILEGE_NOT_HELD;
 			}
 		}
 		else
 		{
-			//¶¼²»Âú×ãÖ±½Ó´íÎó·µ»Ø
+			//éƒ½ä¸æ»¡è¶³ç›´æ¥é”™è¯¯è¿”å›
 			Status = STATUS_PRIVILEGE_NOT_HELD;
 		}
 		if (SeCaptureSubjectContext_Flag)
 		{
-			//È¡ÏûÖÃ0
+			//å–æ¶ˆç½®0
 			SeCaptureSubjectContext_Flag = FALSE;
-			//ÊÍ·Å
+			//é‡Šæ”¾
 			SeReleaseSubjectContext(&Create_SubjectSecurityContext);
 		}
 	}
-	Irp->IoStatus.Status = Status;			//±íÊ¾IRPÍê³É×´Ì¬
+	Irp->IoStatus.Status = Status;			//è¡¨ç¤ºIRPå®ŒæˆçŠ¶æ€
 	IofCompleteRequest(Irp, IO_NO_INCREMENT);
 	return Status;
 }
@@ -2402,29 +2402,29 @@ NTSTATUS	HookPort_DeviceControl(
 	inBufLength = IrpStack->Parameters.DeviceIoControl.InputBufferLength;		
 	outBufLength = IrpStack->Parameters.DeviceIoControl.OutputBufferLength;		
 	ioControlCode = IrpStack->Parameters.DeviceIoControl.IoControlCode;			
-	//¶¼ÊÇĞ©ÊÇ·ñ¿ªÆôµ÷ÊÔ·½Ê½£¨»á´òÓ¡µ÷ÊÔĞÅÏ¢µÄ£©£¬ÀÁµÃĞ´ÁË
+	//éƒ½æ˜¯äº›æ˜¯å¦å¼€å¯è°ƒè¯•æ–¹å¼ï¼ˆä¼šæ‰“å°è°ƒè¯•ä¿¡æ¯çš„ï¼‰ï¼Œæ‡’å¾—å†™äº†
 	switch (ioControlCode)
 	{
 		case HOOKPORT_GETVER:
 		{
-			//¸øR3·µ»ØÒ»¸öHookPortµÄ°æ±¾ºÅ£¬·Ç³£ÖØÒª¡£
+			//ç»™R3è¿”å›ä¸€ä¸ªHookPortçš„ç‰ˆæœ¬å·ï¼Œéå¸¸é‡è¦ã€‚
 			if (outBufLength < sizeof(ULONG))
 			{
-				//outBufLength< 4¾Í²ÎÊı´íÎó
+				//outBufLength< 4å°±å‚æ•°é”™è¯¯
 				Status = STATUS_INVALID_PARAMETER;
 			}
 			else
 			{
-				//·µ»Ø°æ±¾ºÅ
+				//è¿”å›ç‰ˆæœ¬å·
 				ioBuf->LowPart = HOOKPORT_VERSION;
-				//Ğ¡ÓÚ8×Ö½ÚËã4×Ö½Ú£¬·ñÔòËã8×Ö½Ú
+				//å°äº8å­—èŠ‚ç®—4å­—èŠ‚ï¼Œå¦åˆ™ç®—8å­—èŠ‚
 				if (outBufLength < sizeof(ULONGLONG))
 				{
 					Irp->IoStatus.Information = sizeof(ULONG);
 				}
 				else
 				{
-					//ÕâÒ»²½ÒâÒåºÎÔÚ£¿£¿£¿£¿£¿£¿£¿
+					//è¿™ä¸€æ­¥æ„ä¹‰ä½•åœ¨ï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿï¼Ÿ
 					ioBuf->HighPart = dword_1B114;
 					Irp->IoStatus.Information = sizeof(ULONGLONG);
 				}
@@ -2433,7 +2433,7 @@ NTSTATUS	HookPort_DeviceControl(
 		}
 		case HOOKPORT_DEBUGMEASSAGE1:
 		{
-			//¿ªÆôÊä³öµ÷ÊÔĞÅÏ¢µÄ£¨ÎŞÊÓ£©
+			//å¼€å¯è¾“å‡ºè°ƒè¯•ä¿¡æ¯çš„ï¼ˆæ— è§†ï¼‰
 			if (inBufLength >= sizeof(ULONG))
 			{
 				DbgPrintf_dword_1B174 = ioBuf->LowPart;
@@ -2442,7 +2442,7 @@ NTSTATUS	HookPort_DeviceControl(
 		}
 		case HOOKPORT_DEBUGMEASSAGE2:
 		{
-			//¿ªÆôÊä³öµ÷ÊÔĞÅÏ¢µÄ£¨ÎŞÊÓ£©
+			//å¼€å¯è¾“å‡ºè°ƒè¯•ä¿¡æ¯çš„ï¼ˆæ— è§†ï¼‰
 			if (inBufLength >= sizeof(ULONG))
 			{
 				DbgPrintf_dword_1AFA0 = ioBuf->LowPart;
@@ -2451,7 +2451,7 @@ NTSTATUS	HookPort_DeviceControl(
 		}
 		case HOOKPORT_DEBUGMEASSAGE3:
 		{
-			//¿ªÆôÊä³öµ÷ÊÔĞÅÏ¢µÄ£¨ÎŞÊÓ£©
+			//å¼€å¯è¾“å‡ºè°ƒè¯•ä¿¡æ¯çš„ï¼ˆæ— è§†ï¼‰
 			if (inBufLength >= sizeof(ULONG))
 			{
 				DbgPrintf_dword_1B178 = ioBuf->LowPart;
@@ -2460,8 +2460,8 @@ NTSTATUS	HookPort_DeviceControl(
 		}
 		case HOOKPORT_DEBUGMEASSAGE4:
 		{
-			//R3´«µİÒ»¸öÊ±¼ä£¬Aµãµ½BµãÖ´ĞĞ´úÂëÊ±¼ä±ØĞëĞ¡ÓÚ¸ÃÊ±¼ä²Å´òÓ¡µ÷ÊÔĞÅÏ¢£¬ÄÑµÀ·ÀÖ¹±»µ÷ÊÔ
-			//Ò»°ã³ÌĞò²»ÖĞ¶ÏÊ±¼äÊÇ·Ç³£¶ÌµÄ
+			//R3ä¼ é€’ä¸€ä¸ªæ—¶é—´ï¼ŒAç‚¹åˆ°Bç‚¹æ‰§è¡Œä»£ç æ—¶é—´å¿…é¡»å°äºè¯¥æ—¶é—´æ‰æ‰“å°è°ƒè¯•ä¿¡æ¯ï¼Œéš¾é“é˜²æ­¢è¢«è°ƒè¯•
+			//ä¸€èˆ¬ç¨‹åºä¸ä¸­æ–­æ—¶é—´æ˜¯éå¸¸çŸ­çš„
 			if (inBufLength >= sizeof(ULONG))
 			{
 				DbgPrintf_qdword_1AFB0 = ioBuf->QuadPart;
@@ -2470,47 +2470,47 @@ NTSTATUS	HookPort_DeviceControl(
 		}
 		default:
 		{
-			//´íÎó·µ»Ø£¬¿ØÖÆÂëÊÇÎŞĞ§µÄ
+			//é”™è¯¯è¿”å›ï¼Œæ§åˆ¶ç æ˜¯æ— æ•ˆçš„
 			KdPrint(("Unknown ioControlCode:%X\t\n", ioControlCode));
 			Status = STATUS_INVALID_DEVICE_REQUEST;
 			break;
 		}
 	}
-	Irp->IoStatus.Status = Status;							//±íÊ¾IRPÍê³É×´Ì¬
+	Irp->IoStatus.Status = Status;							//è¡¨ç¤ºIRPå®ŒæˆçŠ¶æ€
 	IoCompleteRequest(Irp, IO_NO_INCREMENT);
 	return Status;
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: DriverUnload     
-// º¯ÊıËµÃ÷£ºĞ¶ÔØº¯Êı£¨×Ô¼º·½±ã²âÊÔĞ´µÄ£¬Ô­°æÇı¶¯ÊÇÃ»ÓĞĞ¶ÔØº¯ÊıµÄ£©    
-// IDAµØÖ· £º
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/12/05     
-// ·µ »Ø Öµ: VOID     
-// ²Î    Êı: IN PDRIVER_OBJECT DriverObject     
+// å‡½æ•°åç§°: DriverUnload     
+// å‡½æ•°è¯´æ˜ï¼šå¸è½½å‡½æ•°ï¼ˆè‡ªå·±æ–¹ä¾¿æµ‹è¯•å†™çš„ï¼ŒåŸç‰ˆé©±åŠ¨æ˜¯æ²¡æœ‰å¸è½½å‡½æ•°çš„ï¼‰    
+// IDAåœ°å€ ï¼š
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/12/05     
+// è¿” å› å€¼: VOID     
+// å‚    æ•°: IN PDRIVER_OBJECT DriverObject     
 //************************************  
 VOID DriverUnload(IN PDRIVER_OBJECT DriverObject)
 {
 	UNREFERENCED_PARAMETER(DriverObject);
-	KdPrint(("Ğ¶ÔØ³É¹¦\t\n"));
+	KdPrint(("å¸è½½æˆåŠŸ\t\n"));
 	return;
 }
 
 //************************************     
-// º¯ÊıÃû³Æ: DriverEntry     
-// º¯ÊıËµÃ÷£ºÇı¶¯³ÌĞòÈë¿Ú     
-// ×÷    Õß£ºMr.M    
-// ²Î¿¼ÍøÖ·£º
-// ×÷³ÉÈÕÆÚ£º2019/11/29     
-// ·µ »Ø Öµ: NTSTATUS     
-// ²Î    Êı: IN PDRIVER_OBJECT DriverObj     
-// ²Î    Êı: IN PUNICODE_STRING RegPath     
+// å‡½æ•°åç§°: DriverEntry     
+// å‡½æ•°è¯´æ˜ï¼šé©±åŠ¨ç¨‹åºå…¥å£     
+// ä½œ    è€…ï¼šMr.M    
+// å‚è€ƒç½‘å€ï¼š
+// ä½œæˆæ—¥æœŸï¼š2019/11/29     
+// è¿” å› å€¼: NTSTATUS     
+// å‚    æ•°: IN PDRIVER_OBJECT DriverObj     
+// å‚    æ•°: IN PUNICODE_STRING RegPath     
 //************************************  
 NTSTATUS DriverEntry(
-	IN PDRIVER_OBJECT  DriverObject,		//´ú±í±¾Çı¶¯µÄÇı¶¯¶ÔÏó
-	IN PUNICODE_STRING RegPath				//Çı¶¯µÄÂ·¾¶£¬ÔÚ×¢²á±íÖĞ
+	IN PDRIVER_OBJECT  DriverObject,		//ä»£è¡¨æœ¬é©±åŠ¨çš„é©±åŠ¨å¯¹è±¡
+	IN PUNICODE_STRING RegPath				//é©±åŠ¨çš„è·¯å¾„ï¼Œåœ¨æ³¨å†Œè¡¨ä¸­
 	)
 {
 	NTSTATUS Status = STATUS_INVALID_DEVICE_REQUEST;
@@ -2519,14 +2519,14 @@ NTSTATUS DriverEntry(
 	PDEVICE_OBJECT	DeviceObject = NULL;
 	UNREFERENCED_PARAMETER(RegPath);
 	Global_DriverObject = (ULONG)DriverObject;
-	//1¡¢»ñÈ¡°æ±¾ĞÅÏ¢
+	//1ã€è·å–ç‰ˆæœ¬ä¿¡æ¯
 	Status = HookPort_PsGetVersion();
 	if (!NT_SUCCESS(Status))
 	{
 		KdPrint(("HookPort: HookPort_PsGetVersion failed,err=%08x\t\n", Status));
 		return Status;
 	}
-	//2¡¢°²È«Ä£Ê½ÏÂ²»Æô¶¯
+	//2ã€å®‰å…¨æ¨¡å¼ä¸‹ä¸å¯åŠ¨
 	if (*(ULONG*)InitSafeBootMode)
 	{
 		if (*(ULONG*)InitSafeBootMode == 1)
@@ -2544,12 +2544,12 @@ NTSTATUS DriverEntry(
 		if (Status < 0)
 			return STATUS_NOT_SAFE_MODE_DRIVER;
 	}
-	//2¡¢´´½¨Éè±¸
+	//2ã€åˆ›å»ºè®¾å¤‡
 	RtlInitUnicodeString(&DestinationString, HookPort_DeviceName);
 	RtlInitUnicodeString(&SymbolicLinkName, HookPort_LinkName);
 	Status = IoCreateDevice(
 		DriverObject,
-		sizeof(HOOKPORT_EXTENSION),		  //À©Õ¹18u                                  
+		sizeof(HOOKPORT_EXTENSION),		  //æ‰©å±•18u                                  
 		&DestinationString,
 		FILE_DEVICE_UNKNOWN,			 //#define FILE_DEVICE_UNKNOWN             0x00000022
 		FILE_DEVICE_SECURE_OPEN,		 // DeviceCharacteristics   ,#define FILE_DEVICE_SECURE_OPEN                 0x00000100                        
@@ -2562,7 +2562,7 @@ NTSTATUS DriverEntry(
 		return Status;
 	}
 
-	//3¡¢¸øÉè±¸´´½¨Ò»¸ö·ûºÅÁ´½Ó
+	//3ã€ç»™è®¾å¤‡åˆ›å»ºä¸€ä¸ªç¬¦å·é“¾æ¥
 	Status = IoCreateSymbolicLink(&SymbolicLinkName, &DestinationString);
 	if (!NT_SUCCESS(Status))
 	{
@@ -2571,17 +2571,17 @@ NTSTATUS DriverEntry(
 		return Status;
 	}
 
-	//4¡¢ ²»¸ĞĞËÈ¤µÄÍ¨ÓÃ´¦Àí
+	//4ã€ ä¸æ„Ÿå…´è¶£çš„é€šç”¨å¤„ç†
 	for (int i = 0; i < IRP_MJ_MAXIMUM_FUNCTION; i++)
 	{
 		DriverObject->MajorFunction[i] = HookPort_CommonProc;
 	}
-	//4¡¢1 DeviceControl¶¼ÊÇĞ©¿ªÆôµ÷ÊÔĞÅÏ¢Ïà¹ØµÄÖ±½ÓÎŞÊÓ
-	DriverObject->MajorFunction[IRP_MJ_CREATE] = HookPort_Create;					 //ÅĞ¶ÏÈ¨ÏŞÁîÅÆÖ®ÀàµÄ
-	DriverObject->MajorFunction[IRP_MJ_CLOSE] = HookPort_Close;						 //ÎŞ
-	DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = HookPort_DeviceControl;     //»ñÈ¡HookPort°æ±¾ºÍÉèÖÃ¿ªÆôµ÷ÊÔĞÅÏ¢±êÖ¾Î»
+	//4ã€1 DeviceControléƒ½æ˜¯äº›å¼€å¯è°ƒè¯•ä¿¡æ¯ç›¸å…³çš„ç›´æ¥æ— è§†
+	//DriverObject->MajorFunction[IRP_MJ_CREATE] = HookPort_Create;					 //åˆ¤æ–­æƒé™ä»¤ç‰Œä¹‹ç±»çš„
+	//DriverObject->MajorFunction[IRP_MJ_CLOSE] = HookPort_Close;						 //æ— 
+	//DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = HookPort_DeviceControl;     //è·å–HookPortç‰ˆæœ¬å’Œè®¾ç½®å¼€å¯è°ƒè¯•ä¿¡æ¯æ ‡å¿—ä½
 
-	//5¡¢³õÊ¼»¯²¿·Ö¸÷ÖÖhook¡¢´´½¨½ø³Ì¡¢Ïß³Ì»Øµ÷µÈµÈ
+	//5ã€åˆå§‹åŒ–éƒ¨åˆ†å„ç§hookã€åˆ›å»ºè¿›ç¨‹ã€çº¿ç¨‹å›è°ƒç­‰ç­‰
 	Status = HookPort_InitSDT();
 	if (!NT_SUCCESS(Status))
 	{
@@ -2590,13 +2590,13 @@ NTSTATUS DriverEntry(
 		KdPrint(("HookPort: HookPort_InitSDT failed,err=%08x\t\n", Status));
 		return STATUS_UNSUCCESSFUL;
 	}
-	//6¡¢³õÊ¼»¯µ¼³ö½Ó¿Úº¯Êı
+	//6ã€åˆå§‹åŒ–å¯¼å‡ºæ¥å£å‡½æ•°
 	HookPort_InitDeviceExtInterface(DeviceObject);
-	//7¡¢
-	//1¡¢¸ù¾İÌõ¼şÅĞ¶ÏÊÇ·ñÆôÓÃFakeKiSystemServiceµÄhook
-	//2¡¢³õÊ¼»¯À©Õ¹½á¹¹£¬µ¼³ö¸øÁíÍâÒ»¸ösysÊ¹ÓÃ
+	//7ã€
+	//1ã€æ ¹æ®æ¡ä»¶åˆ¤æ–­æ˜¯å¦å¯ç”¨FakeKiSystemServiceçš„hook
+	//2ã€åˆå§‹åŒ–æ‰©å±•ç»“æ„ï¼Œå¯¼å‡ºç»™å¦å¤–ä¸€ä¸ªsysä½¿ç”¨
 	HookPort_19230();
-	KdPrint(("HookPort: 360HookPortÇı¶¯¼ÓÔØ³É¹¦\t\n"));
+	KdPrint(("HookPort: 360HookPorté©±åŠ¨åŠ è½½æˆåŠŸ\t\n"));
 	DriverObject->DriverUnload = DriverUnload;
 	return STATUS_SUCCESS;
 }
