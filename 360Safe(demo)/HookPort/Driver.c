@@ -2311,7 +2311,7 @@ NTSTATUS HookPort_CommonProc(
 NTSTATUS	HookPort_Create(
 	IN PDEVICE_OBJECT DeviceObject,
 	IN PIRP Irp
-	)
+)
 {
 	NTSTATUS			     Status = STATUS_SUCCESS;
 	PIO_STACK_LOCATION	     IrpStack;
@@ -2321,7 +2321,7 @@ NTSTATUS	HookPort_Create(
 	BOOLEAN                  SeCaptureSubjectContext_Flag = FALSE;
 	Irp->IoStatus.Information = 0;
 	IrpStack = IoGetCurrentIrpStackLocation(Irp);
-    Create_SecurityContext = IrpStack->Parameters.Create.SecurityContext;
+	Create_SecurityContext = IrpStack->Parameters.Create.SecurityContext;
 	Create_AccessState = Create_SecurityContext->AccessState;
 	//1、必须是应用层调用
 	if (Irp->RequestorMode)
@@ -2339,34 +2339,19 @@ NTSTATUS	HookPort_Create(
 			SeCaptureSubjectContext_Flag = TRUE;
 		}
 		//3、主要判断ClientToken or PrimaryToken是否在administrators组中
-		if (!Create_SubjectSecurityContext.ClientToken && Create_SubjectSecurityContext.PrimaryToken)
+		if (!Create_SubjectSecurityContext.ClientToken)
 		{
-			//令牌包含本地administrators组返回真，否则假
-			if (SeTokenIsAdmin(Create_SubjectSecurityContext.ClientToken))
+			if (Create_SubjectSecurityContext.PrimaryToken)
 			{
-				//合法返回
-				Status = STATUS_SUCCESS;
-			}
-			else
-			{
-				//权限不足
-				Status = STATUS_PRIVILEGE_NOT_HELD;
+				//令牌包含本地administrators组返回真，否则假
+				Status = SeTokenIsAdmin(Create_SubjectSecurityContext.PrimaryToken) ? STATUS_SUCCESS : STATUS_PRIVILEGE_NOT_HELD;
 			}
 		}
 		//判断令牌等级，值越大能力越高
-		else if (Create_SubjectSecurityContext.ClientToken && Create_SubjectSecurityContext.ImpersonationLevel > SecurityIdentification)
+		else if (Create_SubjectSecurityContext.ImpersonationLevel > SecurityIdentification)
 		{
 			//令牌包含本地administrators组返回真，否则假
-			if (SeTokenIsAdmin(Create_SubjectSecurityContext.ClientToken))
-			{
-				//合法返回
-				Status = STATUS_SUCCESS;
-			}
-			else
-			{
-				//权限不足
-				Status = STATUS_PRIVILEGE_NOT_HELD;
-			}
+			Status = SeTokenIsAdmin(Create_SubjectSecurityContext.ClientToken) ? STATUS_SUCCESS : STATUS_PRIVILEGE_NOT_HELD;
 		}
 		else
 		{
@@ -2577,9 +2562,9 @@ NTSTATUS DriverEntry(
 		DriverObject->MajorFunction[i] = HookPort_CommonProc;
 	}
 	//4、1 DeviceControl都是些开启调试信息相关的直接无视
-	//DriverObject->MajorFunction[IRP_MJ_CREATE] = HookPort_Create;					 //判断权限令牌之类的
-	//DriverObject->MajorFunction[IRP_MJ_CLOSE] = HookPort_Close;						 //无
-	//DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = HookPort_DeviceControl;     //获取HookPort版本和设置开启调试信息标志位
+	DriverObject->MajorFunction[IRP_MJ_CREATE] = HookPort_Create;			   //判断权限令牌之类的
+	DriverObject->MajorFunction[IRP_MJ_CLOSE] = HookPort_Close;			   //无
+	DriverObject->MajorFunction[IRP_MJ_DEVICE_CONTROL] = HookPort_DeviceControl;     //获取HookPort版本和设置开启调试信息标志位
 
 	//5、初始化部分各种hook、创建进程、线程回调等等
 	Status = HookPort_InitSDT();
