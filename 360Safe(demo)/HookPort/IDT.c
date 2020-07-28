@@ -4,7 +4,7 @@ ULONG HookPort_GetInterruptFuncAddress(ULONG InterruptIndex)
 {
 	IDTR		idtr;
 	IDTENTRY	*pidt_entry;
-	//»ñÈ¡µ½IDT
+	//è·å–åˆ°IDT
 	__sidt(&idtr);
 	pidt_entry = (IDTENTRY *)MAKELONG(idtr.IDT_LOWbase, idtr.IDT_HIGbase);
 	return MAKELONG(pidt_entry[InterruptIndex].LowOffset, pidt_entry[InterruptIndex].HiOffset);
@@ -15,21 +15,21 @@ ULONG HookPort_SetKiTrapXAddress(ULONG InterruptIndex, ULONG NewInterruptFunc)
 	IDTR		idtr;
 	IDTENTRY	*pIdtEntry;
 	_disable();
-	//»ñÈ¡µ½IDT
+	//è·å–åˆ°IDT
 	__sidt(&idtr);
 	pIdtEntry = (IDTENTRY *)MAKELONG(idtr.IDT_LOWbase, idtr.IDT_HIGbase);
-	//¹Ø±ÕÄÚ´æ±£»¤
+	//å…³é—­å†…å­˜ä¿æŠ¤
 	PageProtectOff();
-	//Ô­Àí£º
-	//ĞŞ¸Ä¶ÎÄÚÆ«ÒÆ´ïµ½HOOK IDTµÄ×÷ÓÃ
-	//1.  Ìæ»»³ÉĞÂµÄº¯ÊıÏÈÌæ»»µÍ2×Ö½Ú
+	//åŸç†ï¼š
+	//ä¿®æ”¹æ®µå†…åç§»è¾¾åˆ°HOOK IDTçš„ä½œç”¨
+	//1.  æ›¿æ¢æˆæ–°çš„å‡½æ•°å…ˆæ›¿æ¢ä½2å­—èŠ‚
 	pIdtEntry[InterruptIndex].LowOffset = (unsigned short)((ULONG)NewInterruptFunc & 0xFFFF);
-	//2.  Ìæ»»³ÉĞÂµÄº¯ÊıÔÙÌæ»»¸ß2×Ö½Ú
+	//2.  æ›¿æ¢æˆæ–°çš„å‡½æ•°å†æ›¿æ¢é«˜2å­—èŠ‚
 	pIdtEntry[InterruptIndex].HiOffset = (unsigned short)((ULONG)NewInterruptFunc >> 16);
-	//¿ªÆôÄÚ´æ±£»¤
+	//å¼€å¯å†…å­˜ä¿æŠ¤
 	PageProtectOn();
 	_enable();
-	//·µ»ØHOOKºóµÄIDTÖĞ¶ÏµØÖ·
+	//è¿”å›HOOKåçš„IDTä¸­æ–­åœ°å€
 	return MAKELONG(pIdtEntry[InterruptIndex].LowOffset, pIdtEntry[InterruptIndex].HiOffset);
 }
 
@@ -48,11 +48,11 @@ VOID NTAPI DeferredRoutine(
 	InterlockedExchangeAdd(SystemArgument2, 1);
 }
 
-//¶àºËHOOKidt±í
+//å¤šæ ¸HOOKidtè¡¨
 ULONG NTAPI HookPort_Hook_IDT_152DA(PVOID SystemArgument1, PVOID DeferredContext)
 {
 	ULONG Result;
-	ULONG CpuNumber = 32;			//CPUºËĞÄ×î´óÓ¦¸Ã²»³¬¹ı32
+	ULONG CpuNumber = 32;			//CPUæ ¸å¿ƒæœ€å¤§åº”è¯¥ä¸è¶…è¿‡32
 	KAFFINITY ActiveProcessors_v7;
 	PKDPC pDpc_v3, pDpc_v4;
 	KIRQL OldIrql;
@@ -61,7 +61,7 @@ ULONG NTAPI HookPort_Hook_IDT_152DA(PVOID SystemArgument1, PVOID DeferredContext
 	LONG Addend; // [sp+18h] [bp-8h]@1
 	ULONG(*pHookPort_SetKiTrapXAddress)(ULONG InterruptIndex, ULONG NewInterruptFunc);
 	ULONG nLoopTimes_v8;
-	ULONG nLoopTimes_v13;			//ºÄÊ±¼ä´úÂë£¬ÎªÁË¸ü°²È«hookÍêÈ«²¿ºËĞÄ
+	ULONG nLoopTimes_v13;			//è€—æ—¶é—´ä»£ç ï¼Œä¸ºäº†æ›´å®‰å…¨hookå®Œå…¨éƒ¨æ ¸å¿ƒ
 	nLoopTimes_v13 = 100000;
 	Result = 0;
 	v9 = 0;
@@ -75,12 +75,12 @@ ULONG NTAPI HookPort_Hook_IDT_152DA(PVOID SystemArgument1, PVOID DeferredContext
 		for (ULONG i = 0; i < CpuNumber; i++)
 		{
 			pDpc_v4 = &g_idt_Dpc[i];
-			//ËùÊöKeInitializeDpcÀı³Ì³õÊ¼»¯Ò»¸öDPC¶ÔÏó£¬²¢×¢²áCustomDpc¸Ã¶ÔÏóÀı³Ì¡£
+			//æ‰€è¿°KeInitializeDpcä¾‹ç¨‹åˆå§‹åŒ–ä¸€ä¸ªDPCå¯¹è±¡ï¼Œå¹¶æ³¨å†ŒCustomDpcè¯¥å¯¹è±¡ä¾‹ç¨‹ã€‚
 			KeInitializeDpc(pDpc_v4, DeferredRoutine,DeferredContext);
-			//¸ÃKeSetImportanceDpc³ÌĞòÖ¸¶¨µÄDPCÀı³ÌÊÇÈçºÎÁ¢¼´ÔËĞĞ¡£
+			//è¯¥KeSetImportanceDpcç¨‹åºæŒ‡å®šçš„DPCä¾‹ç¨‹æ˜¯å¦‚ä½•ç«‹å³è¿è¡Œã€‚
 			KeSetImportanceDpc(pDpc_v4, HighImportance);
-			//¸ÃKeSetTargetProcessorDpc³ÌĞòÖ¸¶¨µÄ´¦ÀíÆ÷£¬Ò»¸öDPCÀı³Ì½«ÉÏÔËĞĞ¡£
-			KeSetTargetProcessorDpc(pDpc_v4, i++);
+			//è¯¥KeSetTargetProcessorDpcç¨‹åºæŒ‡å®šçš„å¤„ç†å™¨ï¼Œä¸€ä¸ªDPCä¾‹ç¨‹å°†ä¸Šè¿è¡Œã€‚
+			KeSetTargetProcessorDpc(pDpc_v4, i);
 			//++pDpc_v4;
 		}
 		OldIrql = KfRaiseIrql(DISPATCH_LEVEL);
@@ -92,23 +92,23 @@ ULONG NTAPI HookPort_Hook_IDT_152DA(PVOID SystemArgument1, PVOID DeferredContext
 				//__asm mov eax, fs:[0x51]
 				//__asm mov nCurCpu_v18, eax
 				nCurCpu_v18 = __readfsdword(0x51);
-				if (nCurCpu_v18 == i_v5)		//ÊÇµ±Ç°ºËĞÄÖ±½Óµ÷ÓÃHookPort_SetKiTrapXAddressº¯ÊıÌæ»»
+				if (nCurCpu_v18 == i_v5)		//æ˜¯å½“å‰æ ¸å¿ƒç›´æ¥è°ƒç”¨HookPort_SetKiTrapXAddresså‡½æ•°æ›¿æ¢
 				{
 					InterlockedExchangeAdd(&Addend, 1);
 					InterlockedExchangeAdd(&v9, 1);
 					pHookPort_SetKiTrapXAddress(4, DeferredContext);
 				}
-				else                            //·Çµ±Ç°ºËĞÄ£¬¾ÍDpc·½Ê½´¦ÀíÌæ»»IDTÖĞ¶Ï
+				else                            //éå½“å‰æ ¸å¿ƒï¼Œå°±Dpcæ–¹å¼å¤„ç†æ›¿æ¢IDTä¸­æ–­
 				{
 					InterlockedExchangeAdd(&v9, 1);
 					KeInsertQueueDpc(pDpc_v3, SystemArgument1, &Addend);
 				}
 			}
 		}
-		//´¿ºÄÊ±¼ä´úÂë,TsFltMgrÇı¶¯Ò²ÊÇÕâÃ´¸ÉµÄ
+		//çº¯è€—æ—¶é—´ä»£ç ,TsFltMgré©±åŠ¨ä¹Ÿæ˜¯è¿™ä¹ˆå¹²çš„
 		//ULONG nLoopTimes_v13 = 1000000;
 		//while ( --nLoopTimes_v13 );
-		//ºÄÊ±¼ä£¬ÎªÁË¸ü°²È«µÄhookÍêÈ«²¿ºËĞÄ
+		//è€—æ—¶é—´ï¼Œä¸ºäº†æ›´å®‰å…¨çš„hookå®Œå…¨éƒ¨æ ¸å¿ƒ
 		do
 		{
 			if (Addend >= v9)
@@ -136,7 +136,7 @@ ULONG NTAPI HookPort_Hook_IDT_152DA(PVOID SystemArgument1, PVOID DeferredContext
 }
 
 
-//Í¨¹ıIDT¶¨Î»µ½KiSystemServiceº¯Êı
+//é€šè¿‡IDTå®šä½åˆ°KiSystemServiceå‡½æ•°
 ULONG HookPort_GetKiSystemService_IDT()
 {
 	IDTR		idtr;
@@ -145,7 +145,7 @@ ULONG HookPort_GetKiSystemService_IDT()
 	ULONG       LowAddress, MiddleAddress, HigAddress;
 	USHORT      LowBuff;
 
-	//»ñÈ¡µ½IDT
+	//è·å–åˆ°IDT
 	__sidt(&idtr);
 	pIdtEntry = MAKELONG(idtr.IDT_LOWbase, idtr.IDT_HIGbase);
 	if (MmIsAddressValid(pIdtEntry))
@@ -158,7 +158,7 @@ ULONG HookPort_GetKiSystemService_IDT()
 			OutKiSystemServiceAddress = (*(USHORT*)LowAddress) | (*(USHORT*)MiddleAddress << 16);
 			if (MmIsAddressValid(OutKiSystemServiceAddress))
 			{
-				//·µ»ØKiSystemServiceº¯ÊıµØÖ·
+				//è¿”å›KiSystemServiceå‡½æ•°åœ°å€
 				return OutKiSystemServiceAddress;
 			}
 
