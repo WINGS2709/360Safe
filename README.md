@@ -25,7 +25,14 @@ VS2013 + WDK8.1
 # 作者：         
 跳刀跳刀丶Blink    
 
-
+# 参考文献：
+ 1、发一个可编译，可替换的hookport代码 
+ 网址：https://bbs.pediy.com/thread-157472.htm
+ 2、腾讯管家攻防驱动分析-TsFltMgr
+ 网址：https://www.jianshu.com/p/718dd8a1dd27
+ 3、总结一把，较为精确判断SCM加载
+ 网址：https://bbs.pediy.com/thread-135988.htm
+ 
 # 免责声明：                     
 此文件是由逆向分析取得，只可用于学习研究之用途。本人对他人使用本文件中的代码所引起的后果概不负责。           
   
