@@ -1,0 +1,107 @@
+#include <ntifs.h>
+#include "HookPortDeviceExtension.h"
+
+//不感兴趣的通用处理
+NTSTATUS Safe_CommonProc(IN PDEVICE_OBJECT DeviceObject,IN PIRP Irp);
+
+//重启
+NTSTATUS Safe_Shutdown(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
+
+//读
+NTSTATUS Safe_Read(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
+
+
+//创建、结束、CLEANUP
+NTSTATUS Safe_CreateCloseCleanup(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
+
+//消息循环泵
+NTSTATUS Safe_DeviceControl(IN PDEVICE_OBJECT DeviceObject, IN PIRP Irp);
+
+
+/**************操控白名单列表命令****************/
+//白名单进程
+#define SAFE_INSERTWHITELIST__PID_2003				CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0803, METHOD_BUFFERED, FILE_ANY_ACCESS)		//添加白名单进程 Win2003
+#define SAFE_INSERTWHITELIST__PID					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0810, METHOD_BUFFERED, FILE_ANY_ACCESS)		//添加白名单进程
+
+#define SAFE_DELETEWHITELIST_PID					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0804, METHOD_BUFFERED, FILE_ANY_ACCESS)		//删除白名单进程
+#define SAFE_DELETEWHITELIST_PID_SESSIONID			CTL_CODE(FILE_DEVICE_UNKNOWN, 0x080F, METHOD_BUFFERED, FILE_ANY_ACCESS)		//删除白名单进程
+#define SAFE_QUERYWHITE_PID							CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0813, METHOD_BUFFERED, FILE_ANY_ACCESS)		//查询白名单进程
+
+//合法进程路径则添加白名单进程
+#define SAFE_CHECK_INSERTWHITELIST__PID				CTL_CODE(FILE_DEVICE_UNKNOWN, 0x080E, METHOD_BUFFERED, FILE_ANY_ACCESS)		//合法进程路径则添加白名单进程
+
+//R3与R0通讯的特殊白名单进程
+#define SAFE_INSERTSPECIALWHITELIST_PID				CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0806, METHOD_BUFFERED, FILE_ANY_ACCESS)		//Safe_InsertSpecialWhiteList_PID
+/**************操控白名单列表命令****************/
+
+/**************未识别命令************************/
+#define SAFE_UNKNOWN								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0800, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //
+#define SAFE_UNKNOWN1								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0801, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //
+#define SAFE_UNKNOWN2								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0802, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //
+#define SAFE_UNKNOWN3								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0827, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //
+#define SAFE_UNKNOWN6								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0825, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //R3传递字符串给R0某个全局变量
+
+//置0 or 置1未命名数组下标内容
+#define SAFE_UNKNOWN4								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0828, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //置0数组内容： dword_34DAC[0],dword_34DAC[1]
+#define SAFE_UNKNOWN5								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0829, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //置0数组内容： dword_34DAC[2],dword_34DAC[3]
+#define SAFE_UNKNOWN7								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0814, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //置1数组内容： dword_34DAC[9]
+#define SAFE_UNKNOWN8								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0815, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //置0数组内容： dword_34DAC[9]
+#define SAFE_UNKNOWN9								CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0823, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //设置数组内容：dword_34DAC[10]
+
+
+//输入和输出g_dword_34678
+#define SAFE_GET_DWORD_34678						CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0821, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //R3传递R0  输入
+#define SAFE_SET_DWORD_34678						CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0820, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //R0传递R3  输出
+/**************未识别命令************************/
+
+/**************获取版本命令**********************/
+#define SAFE_GETVER									CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0805, METHOD_BUFFERED, FILE_ANY_ACCESS)	    //返回给R3输出版本
+/**************获取版本命令**********************/
+
+/******主动拦截提示时与应用层的通信交互命令*****/
+#define SAFE_INITIALIZE_SETEVENT					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0807, METHOD_BUFFERED, FILE_ANY_ACCESS)     //初始化事件
+/******主动拦截提示时与应用层的通信交互命令*****/
+
+/*************操控HookPort导出接口命令************/
+#define SAFE_SET_FAKEFUNCTION						CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0808, METHOD_BUFFERED, FILE_ANY_ACCESS)		//填充or 清零 Fake函数
+#define SAFE_GET_FAKEFUNCTION_SWITCH				CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0809, METHOD_BUFFERED, FILE_ANY_ACCESS)		//获取Fake函数填充状态：1清零，0挂钩
+#define SAFE_GET_ISFILTERFUNFILLEDREADY				CTL_CODE(FILE_DEVICE_UNKNOWN, 0x082B, METHOD_BUFFERED, FILE_ANY_ACCESS)		//获取过滤函数表状态：置1所有Fake函数启动、置0所有Fake函数关闭。可以理解为电源总闸
+/*************操控HookPort导出接口命令************/
+
+/**************操控黑白驱动名单命令**************/
+#define SAFE_DELETEDRVMKDATALIST					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x080A, METHOD_BUFFERED, FILE_ANY_ACCESS)		//删除黑白驱动名单
+#define SAFE_INSERTDRVMKDATALIST					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x080B, METHOD_BUFFERED, FILE_ANY_ACCESS)		//添加黑白驱动名单
+#define SAFE_RESETDRVMKDATALIST						CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0819, METHOD_BUFFERED, FILE_ANY_ACCESS)		//重置黑白驱动名单，数据清零
+/**************操控黑白驱动名单命令**************/
+
+/**************操控驱动开启关闭命令************/
+#define SAFE_OFF_360SAFEBOX_SWITCH					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x080D, METHOD_BUFFERED, FILE_ANY_ACCESS)		//关闭360safeBox选项
+#define SAFE_NO_360SAFEBOX_SWITCH					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0811, METHOD_BUFFERED, FILE_ANY_ACCESS)		//开启360safeBox选项
+
+#define SAFE_SET_SPSHADOW0_DATA_DWORD				CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0812, METHOD_BUFFERED, FILE_ANY_ACCESS)		//设置Safe_SetRegedit_SpShadow0开关
+
+//开启 or 关闭Fake_ZwSetSystemInformation的SystemLoadAndCallImage检查命令
+#define SAFE_GET_SYSTEMHOTPATCHINFORMATION_SWITCH   CTL_CODE(FILE_DEVICE_UNKNOWN, 0x0826, METHOD_BUFFERED, FILE_ANY_ACCESS)		//开启 or 关闭SystemLoadAndCallImage的检查
+/**************操控某驱动开启关闭命令************/
+
+/*************ClientLoadLibrary函数命令************/
+#define SAFE_SET_ILLEGALITYDLLPATH					CTL_CODE(FILE_DEVICE_UNKNOWN, 0x082A, METHOD_BUFFERED, FILE_ANY_ACCESS)		//违规DLL路径在ClientLoadLibrary使用
+/*************ClientLoadLibrary函数命令************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

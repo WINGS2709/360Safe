@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="主函数">
+      <UniqueIdentifier>{5df67a77-85d6-4ebe-971f-07ac7d8ad34b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDA宏">
+      <UniqueIdentifier>{196f53a9-23cd-401e-834a-0d649c1ac180}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="全局变量">
+      <UniqueIdentifier>{98c9e256-582e-4abb-8db7-3cfab18ef38e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="版本信息">
+      <UniqueIdentifier>{9df8d55a-ed9f-4875-b929-288e647edbb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="调试信息">
+      <UniqueIdentifier>{a33c8fb3-f868-4c86-8248-f4725e0a4f17}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用函数">
+      <UniqueIdentifier>{a81cabfd-eb95-4d7d-9c04-c30bd05e28b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Win32k">
+      <UniqueIdentifier>{4c0a79d6-48e4-40ef-b1d4-b041adb1acc3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SSDT">
+      <UniqueIdentifier>{df2fc8da-5cdf-4c26-9524-75c5d4458d00}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架">
+      <UniqueIdentifier>{9ae170bf-bdb0-427e-983e-03557358ba0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\通用函数">
+      <UniqueIdentifier>{87f881bb-815b-4fbc-bcb5-41f58361050d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\未处理完毕的">
+      <UniqueIdentifier>{cb374f7e-6fa4-4320-a8e3-9f20636f4dfd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的">
+      <UniqueIdentifier>{42a7894a-6147-4f11-b19e-306045bddded}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\CreateThreadNotifyRoutine">
+      <UniqueIdentifier>{1358d0a4-12f8-4561-a38f-85f908aac062}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\CreateProcessNotifyRoutine">
+      <UniqueIdentifier>{705398c6-34f7-4035-902b-d2c11c142c24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\未处理完毕的\LoadImageNotifyRoutine">
+      <UniqueIdentifier>{d790def3-2060-4735-b8f6-83a5d465e860}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HOOK">
+      <UniqueIdentifier>{b69713d7-d9e3-480a-8025-4f38607382c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\CreateProcessNotifyRoutineEx">
+      <UniqueIdentifier>{bc53725c-0f39-4941-9e02-a5c21215f9d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\未处理完毕的\KeUserModeCallbackDispatcher">
+      <UniqueIdentifier>{c1909ee2-7b27-4aee-9622-cd9a25a42f69}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="HOOK\KiFastCall">
+      <UniqueIdentifier>{37ca9631-8c7f-4bea-864f-71f81c7984f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IDT">
+      <UniqueIdentifier>{d4d50a35-2e29-4aaf-aaf1-98294ea4318b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwContinue">
+      <UniqueIdentifier>{7c9cca9b-8d6c-47ae-a3cb-0d6a44d00c58}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwWriteFile">
+      <UniqueIdentifier>{70a3bc19-312a-413b-88cb-d8d589dcb647}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwOpenFile">
+      <UniqueIdentifier>{19f24570-28d0-4d0b-875b-f05e18ec35b8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwCreateThread">
+      <UniqueIdentifier>{218b2fd2-c33c-4e62-8001-288c23716cd1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwCreateFile">
+      <UniqueIdentifier>{1bc3bf38-cd97-4c2c-998d-a451840fdae7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwDisplayString">
+      <UniqueIdentifier>{d973d7b1-4509-4258-bf15-f634070fe9d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwLoadDriver">
+      <UniqueIdentifier>{eea23190-5c44-4cce-aa09-e00deba31d77}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwUnloadDriver">
+      <UniqueIdentifier>{2d9798c3-48ad-4bae-957f-238809c765d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="通用Hook框架\处理完毕的\ZwSetSystemInformation">
+      <UniqueIdentifier>{df051434-f99d-484a-8803-087e7fc40c0b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Inf Include="HookPort.inf">
+      <Filter>Driver Files</Filter>
+    </Inf>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Driver.c">
+      <Filter>主函数</Filter>
+    </ClCompile>
+    <ClCompile Include="System.c">
+      <Filter>版本信息</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugPrint.c">
+      <Filter>调试信息</Filter>
+    </ClCompile>
+    <ClCompile Include="WinKernel.c">
+      <Filter>通用函数</Filter>
+    </ClCompile>
+    <ClCompile Include="Win32k.c">
+      <Filter>Win32k</Filter>
+    </ClCompile>
+    <ClCompile Include="SSDT.c">
+      <Filter>SSDT</Filter>
+    </ClCompile>
+    <ClCompile Include="IDT.c">
+      <Filter>IDT</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_CreateProcessNotifyRoutine.c">
+      <Filter>通用Hook框架\处理完毕的\CreateProcessNotifyRoutine</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_LoadImageNotifyRoutine.c">
+      <Filter>通用Hook框架\未处理完毕的\LoadImageNotifyRoutine</Filter>
+    </ClCompile>
+    <ClCompile Include="FilterHook.c">
+      <Filter>通用Hook框架\通用函数</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_CreateThreadNotifyRoutine.c">
+      <Filter>通用Hook框架\处理完毕的\CreateThreadNotifyRoutine</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwOpenFile.c">
+      <Filter>通用Hook框架\处理完毕的\ZwOpenFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_CreateProcessNotifyRoutineEx.c">
+      <Filter>通用Hook框架\处理完毕的\CreateProcessNotifyRoutineEx</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwContinue.c">
+      <Filter>通用Hook框架\处理完毕的\ZwContinue</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_KeUserModeCallbackDispatcher.c">
+      <Filter>通用Hook框架\未处理完毕的\KeUserModeCallbackDispatcher</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwCreateThread.c">
+      <Filter>通用Hook框架\处理完毕的\ZwCreateThread</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwWriteFile.c">
+      <Filter>通用Hook框架\处理完毕的\ZwWriteFile</Filter>
+    </ClCompile>
+    <ClCompile Include="KiFastCallEntry.c">
+      <Filter>HOOK\KiFastCall</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwCreateFile.c">
+      <Filter>通用Hook框架\处理完毕的\ZwCreateFile</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwDisplayString.c">
+      <Filter>通用Hook框架\处理完毕的\ZwDisplayString</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwLoadDriver.c">
+      <Filter>通用Hook框架\处理完毕的\ZwLoadDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwUnloadDriver.c">
+      <Filter>通用Hook框架\处理完毕的\ZwUnloadDriver</Filter>
+    </ClCompile>
+    <ClCompile Include="Filter_ZwSetSystemInformation.c">
+      <Filter>通用Hook框架\处理完毕的\ZwSetSystemInformation</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Driver.h">
+      <Filter>主函数</Filter>
+    </ClInclude>
+    <ClInclude Include="defs.h">
+      <Filter>IDA宏</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>全局变量</Filter>
+    </ClInclude>
+    <ClInclude Include="System.h">
+      <Filter>版本信息</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugPrint.h">
+      <Filter>调试信息</Filter>
+    </ClInclude>
+    <ClInclude Include="WinKernel.h">
+      <Filter>通用函数</Filter>
+    </ClInclude>
+    <ClInclude Include="Win32k.h">
+      <Filter>Win32k</Filter>
+    </ClInclude>
+    <ClInclude Include="SSDT.h">
+      <Filter>SSDT</Filter>
+    </ClInclude>
+    <ClInclude Include="IDT.h">
+      <Filter>IDT</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_CreateProcessNotifyRoutine.h">
+      <Filter>通用Hook框架\处理完毕的\CreateProcessNotifyRoutine</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_LoadImageNotifyRoutine.h">
+      <Filter>通用Hook框架\未处理完毕的\LoadImageNotifyRoutine</Filter>
+    </ClInclude>
+    <ClInclude Include="FilterHook.h">
+      <Filter>通用Hook框架\通用函数</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_CreateThreadNotifyRoutine.h">
+      <Filter>通用Hook框架\处理完毕的\CreateThreadNotifyRoutine</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwOpenFile.h">
+      <Filter>通用Hook框架\处理完毕的\ZwOpenFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_CreateProcessNotifyRoutineEx.h">
+      <Filter>通用Hook框架\处理完毕的\CreateProcessNotifyRoutineEx</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwContinue.h">
+      <Filter>通用Hook框架\处理完毕的\ZwContinue</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_KeUserModeCallbackDispatcher.h">
+      <Filter>通用Hook框架\未处理完毕的\KeUserModeCallbackDispatcher</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwCreateThread.h">
+      <Filter>通用Hook框架\处理完毕的\ZwCreateThread</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwWriteFile.h">
+      <Filter>通用Hook框架\处理完毕的\ZwWriteFile</Filter>
+    </ClInclude>
+    <ClInclude Include="KiFastCallEntry.h">
+      <Filter>HOOK\KiFastCall</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwCreateFile.h">
+      <Filter>通用Hook框架\处理完毕的\ZwCreateFile</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwDisplayString.h">
+      <Filter>通用Hook框架\处理完毕的\ZwDisplayString</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwLoadDriver.h">
+      <Filter>通用Hook框架\处理完毕的\ZwLoadDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwUnloadDriver.h">
+      <Filter>通用Hook框架\处理完毕的\ZwUnloadDriver</Filter>
+    </ClInclude>
+    <ClInclude Include="Filter_ZwSetSystemInformation.h">
+      <Filter>通用Hook框架\处理完毕的\ZwSetSystemInformation</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
