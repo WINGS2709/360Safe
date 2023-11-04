@@ -1,7 +1,0 @@
-编译环境:VS2013
-测试环境:虚拟机win 7 32位
-
-360SelfProtection属于导出
-HookPort与360HookPort是一样的
-360HookPort前期抄代码太乱了没整理，一个.h一个.c后面发现实在太难阅读了
-HookPort是整理后的,
